@@ -16,24 +16,10 @@ import SocialIcons from '../components/SocialIcons.astro';
       <div>
         <h2 class="section-heading mb-6">Send a message</h2>
         <hr class="carrd-rule" />
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="display:flex;flex-direction:column;gap:1.25rem;">
-          {[
-            { id: 'name', label: 'Name', type: 'text', placeholder: 'Your name' },
-            { id: 'email', label: 'Email', type: 'email', placeholder: 'you@example.com' },
-          ].map(({ id, label, type, placeholder }) => (
-            <div>
-              <label for={id} style="display:block;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">{label}</label>
-              <input id={id} name={id} type={type} required placeholder={placeholder}
-                style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#ffffff;padding:0.75rem 1rem;font-family:'Didact Gothic',sans-serif;font-size:0.9rem;outline:none;" />
-            </div>
-          ))}
-          <div>
-            <label for="message" style="display:block;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="How can we help?"
-              style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#ffffff;padding:0.75rem 1rem;font-family:'Didact Gothic',sans-serif;font-size:0.9rem;outline:none;resize:none;"></textarea>
-          </div>
-          <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;">Send</button>
-        </form>
+        <p class="mb-10" style="color:rgba(255,255,255,0.75);">
+          Got a question about the race, the week, or anything else? Drop us an email — we'll get back to you as soon as we can.
+        </p>
+        <a href="mailto:swimparty10km@gmail.com?subject=Contact" class="btn btn-pink">Email us</a>
       </div>
 
       <div style="display:flex;flex-direction:column;gap:2.5rem;">
@@ -83,7 +69,7 @@ import SocialIcons from '../components/SocialIcons.astro';
       <p class="mb-10" style="color:rgba(255,255,255,0.75);">
         Interested in sponsoring SwimParty 10km? We offer visibility packages for brands aligned with ocean sports, wellness, and the Algarve. Get in touch and we'll share the partnership deck.
       </p>
-      <a href="mailto:info@swimparty10km.com" class="btn btn-pink">Partner with us</a>
+      <a href="mailto:swimparty10km@gmail.com?subject=Partnership" class="btn btn-pink">Partner with us</a>
     </div>
   </section>
 
