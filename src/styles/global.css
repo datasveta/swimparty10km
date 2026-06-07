@@ -123,8 +123,8 @@ ul.bullets li { margin-bottom: 0.25rem; }
 /* ─── Mobile ────────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   html { font-size: 17px; }
-  .section-heading { font-size: 24px; letter-spacing: 0.3rem; }
-  .btn { height: 3.5rem; font-size: 0.7rem; letter-spacing: 0.3rem; }
+  .section-heading { font-size: 20px; letter-spacing: 0.1rem; }
+  .btn { height: 3.5rem; font-size: 0.7rem; letter-spacing: 0.25rem; }
   .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
   .py-24 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
   .py-16 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }

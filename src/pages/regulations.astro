@@ -29,7 +29,10 @@ import Base from '../layouts/Base.astro';
             ></iframe>
             <div class="pdf-fallback">
               <p>PDF preview is not available on this device.</p>
-              <a href="/terms/regulation-en.pdf" download class="btn btn-pink" style="margin-top:1.25rem;">Download (EN)</a>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;margin-top:1.5rem;">
+                <a href="/terms/regulation-en.pdf" target="_blank" rel="noopener" class="btn btn-pink">Open PDF</a>
+                <a href="/terms/regulation-en.pdf" download class="pdf-download-btn">&#8595; Download</a>
+              </div>
             </div>
           </div>
         </div>
@@ -49,7 +52,10 @@ import Base from '../layouts/Base.astro';
             ></iframe>
             <div class="pdf-fallback">
               <p>PDF preview is not available on this device.</p>
-              <a href="/terms/regulation-pt.pdf" download class="btn btn-pink" style="margin-top:1.25rem;">Download (PT)</a>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:1rem;margin-top:1.5rem;">
+                <a href="/terms/regulation-pt.pdf" target="_blank" rel="noopener" class="btn btn-pink">Open PDF</a>
+                <a href="/terms/regulation-pt.pdf" download class="pdf-download-btn">&#8595; Download</a>
+              </div>
             </div>
           </div>
         </div>

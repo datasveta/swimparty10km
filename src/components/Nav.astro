@@ -13,7 +13,7 @@ const current = Astro.url.pathname;
 ---
 
 <style is:global>
-  @media (min-width: 900px) {
+  @media (min-width: 1100px) {
     #sp-desk { display: flex !important; }
     #sp-burger { display: none !important; }
     #sp-mobile-menu { display: none !important; }
@@ -31,14 +31,14 @@ const current = Astro.url.pathname;
     <a href="/" style="font-family:'Dela Gothic One',cursive;font-size:1rem;text-transform:uppercase;letter-spacing:0.15rem;color:#ffffff;text-decoration:none;white-space:nowrap;flex-shrink:0;">SwimParty 10km</a>
 
     <!-- Desktop nav — hidden by default, shown via media query -->
-    <div id="sp-desk" style="display:none;align-items:center;gap:1.75rem;flex-shrink:0;">
+    <div id="sp-desk" style="display:none;align-items:center;gap:1rem;flex-shrink:0;flex:1;justify-content:flex-end;">
       {links.map(({ href, label }) => {
         const isActive = current === href || (href !== '/' && current.startsWith(href));
         return (
           <a
             href={href}
             id="sp-nav-link"
-            style={`font-family:'Didact Gothic',sans-serif;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.25rem;color:${isActive ? '#DF206C' : 'rgba(255,255,255,0.75)'};text-decoration:none;transition:color 0.2s;white-space:nowrap;`}
+            style={`font-family:'Didact Gothic',sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12rem;color:${isActive ? '#DF206C' : 'rgba(255,255,255,0.75)'};text-decoration:none;transition:color 0.2s;white-space:nowrap;`}
           >{label}</a>
         );
       })}
