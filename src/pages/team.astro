@@ -1,0 +1,124 @@
+---
+import Base from '../layouts/Base.astro';
+
+const team = [
+  { name: 'Mariana Santos', role: 'Lead Event Organizer', bio: ['Founder of Chicas Poderosas', 'Ultra Marathon Swimmer'], img: 'team/mariana.jpg' },
+  { name: 'Svetlana Zadedyurina', role: 'Competition Logistics Manager · Tech Lead', bio: ['Engineering Manager', 'Tech, Swimming and Wine Enthusiast', 'Artist'], img: 'team/svetlana.jpg' },
+  { name: 'Daniela Mira', role: 'Event Producer', bio: [], img: 'team/daniela.jpg' },
+];
+
+const partners = [
+  { name: 'Multicrono', url: 'https://multicrono.com/v1/', img: 'partners/multicrono.png' },
+  { name: 'Rei das Praias', url: 'https://www.restaurantereidaspraias.com/', img: 'partners/rei-das-praias.png' },
+  { name: 'Precision Fuel & Hydration', url: 'https://www.precisionhydration.com', img: 'partners/precision-fuel.png' },
+  { name: 'Junior & Jaques Medronho', url: 'https://juniorjacques.pt/en/homepage/', img: 'partners/junior-jaques.png' },
+  { name: 'Vila Vita Parc', url: 'https://vilavitaparc.com/en', img: 'partners/vila-vita.png' },
+  { name: 'IPDJ', url: 'https://ipdj.gov.pt/', img: 'partners/ipdj.png' },
+  { name: 'Região de Turismo do Algarve', url: 'https://www.turismodoalgarve.pt/pt/Default.aspx', img: 'partners/turismo-algarve.png' },
+  { name: 'Herdade do Sobroso', url: 'https://www.herdadedosobroso.pt/', img: 'partners/herdade-sobroso.png' },
+  { name: 'Outdoor Swimmer', url: 'https://outdoorswimmer.com/', img: 'partners/outdoor-swimmer.png' },
+  { name: 'Sul Informação', url: 'https://www.sulinformacao.pt/', img: 'partners/sul-informacao.png' },
+  { name: 'Carvoeiro Tours', url: 'https://carvoeirotours.com/en/', img: 'partners/carvoeiro-tours.svg' },
+  { name: 'Shark Rebellion', url: 'https://sharkrebellion.com', img: 'partners/shark-rebellion.png' },
+  { name: 'Benagil Kayaking', url: 'https://benagilkayaking.com/', img: 'partners/benagil-kayaking.png' },
+  { name: 'Carvoeiro Cavas', url: 'https://www.carvoeirocaves.com/en/', img: 'partners/carvoeiro-cavas.png' },
+  { name: 'Câmara Municipal de Lagoa', url: 'https://www.cm-lagoa.pt/', img: 'partners/camara-lagoa.png' },
+  { name: 'FUZILEIROS do Algarve', url: 'https://associacaofuzileiros-afz.pt/', img: 'partners/fuzileiros.png' },
+  { name: 'Brotherootz', url: 'https://brotherootzsup.com/', img: 'partners/brotherootz.png' },
+  { name: 'Mirachoro Hotel', url: 'https://en.mirachorohotels.com/', img: 'partners/mirachoro.png' },
+  { name: 'Algarve Essential', url: 'https://www.essential-algarve.com/', img: 'partners/algarve-essential.png' },
+  { name: 'Castores do Arade', url: 'https://www.instagram.com/kccarade/', img: 'partners/castores-arade.png' },
+  { name: 'Taruga Benagil Tours', url: 'https://tarugabenagiltours.pt/', img: 'partners/taruga-benagil.png' },
+  { name: 'Delta Cafés', url: 'https://deltacafes.com/en/', img: 'partners/delta-cafes.png' },
+  { name: 'Urban Gym', url: 'https://urbangym.pt/', img: 'partners/urban-gym.png' },
+  { name: 'Centianes Boat Trip', url: 'https://centianesboattrip.com/', img: 'partners/centianes-boat-trip.png' },
+];
+---
+
+<Base title="Team" description="The people behind SwimParty 10km and our sponsors and partners.">
+
+  <section class="panel-transparent py-24 text-center px-6">
+    <h1 class="font-display uppercase mb-4 page-title">Meet the team</h1>
+    <p style="color:rgba(255,255,255,0.7);font-size:1.05rem;">The people who make SwimParty 10km happen.</p>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Organising team</h2>
+      <hr class="carrd-rule" />
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+        {team.map(({ name, role, bio, img }) => (
+          <div class="text-center">
+            <div class="team-photo-wrap mx-auto mb-4">
+              <img src={`/images/${img}`} alt={name} class="team-photo" />
+            </div>
+            <p class="font-bold text-white text-sm mb-1">{name}</p>
+            <p class="text-xs uppercase mb-2" style="letter-spacing:0.12rem;color:#DF206C;line-height:1.5;">{role}</p>
+            {bio.map((line) => <p class="text-xs" style="color:rgba(255,255,255,0.5);">{line}</p>)}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners: uniform logo grid -->
+  <section class="panel py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Our Partners</h2>
+      <hr class="carrd-rule" />
+      <div class="partner-grid">
+        {partners.map(({ name, url, img }) => (
+          <a href={url} target="_blank" rel="noopener noreferrer" title={name} class="partner-item">
+            <img src={`/images/${img}`} alt={name} />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+</Base>
+
+<style>
+  /* Round team photos */
+  .team-photo-wrap {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.15);
+  }
+  .team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+
+  /* Partner logos: white-background pills, consistent grid */
+  .partner-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) { .partner-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 580px) { .partner-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; } }
+
+  .partner-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.92);
+    padding: 0.75rem 1rem;
+    transition: background 0.2s, transform 0.2s;
+    min-height: 5rem;
+  }
+  .partner-item:hover { background: rgba(255,255,255,1); transform: scale(1.03); }
+  .partner-item img {
+    width: 100%;
+    height: 2.75rem;
+    object-fit: contain;
+  }
+</style>

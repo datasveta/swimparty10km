@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import SocialIcons from '../components/SocialIcons.astro';
+---
+
+<Base title="Contact" description="Get in touch with the SwimParty 10km team.">
+
+  <section class="panel-transparent py-24 text-center px-6">
+    <h1 class="font-display uppercase mb-4 page-title">Contact</h1>
+    <p style="color:rgba(255,255,255,0.7);">Questions, sponsorship, or just want to say hello.</p>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+
+      <div>
+        <h2 class="section-heading mb-6">Send a message</h2>
+        <hr class="carrd-rule" />
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="display:flex;flex-direction:column;gap:1.25rem;">
+          {[
+            { id: 'name', label: 'Name', type: 'text', placeholder: 'Your name' },
+            { id: 'email', label: 'Email', type: 'email', placeholder: 'you@example.com' },
+          ].map(({ id, label, type, placeholder }) => (
+            <div>
+              <label for={id} style="display:block;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">{label}</label>
+              <input id={id} name={id} type={type} required placeholder={placeholder}
+                style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#ffffff;padding:0.75rem 1rem;font-family:'Didact Gothic',sans-serif;font-size:0.9rem;outline:none;" />
+            </div>
+          ))}
+          <div>
+            <label for="message" style="display:block;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="How can we help?"
+              style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#ffffff;padding:0.75rem 1rem;font-family:'Didact Gothic',sans-serif;font-size:0.9rem;outline:none;resize:none;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;">Send</button>
+        </form>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:2.5rem;">
+        <div>
+          <h2 class="section-heading mb-6">Find us</h2>
+          <hr class="carrd-rule" />
+          <SocialIcons withLabels={true} />
+        </div>
+
+        <div>
+          <h3 class="section-heading mb-6" style="font-size:1.25rem;">Stay in the loop</h3>
+          <hr class="carrd-rule" />
+          <p class="text-sm mb-6" style="color:rgba(255,255,255,0.5);">Race updates, early-bird alerts, Swim Week news.</p>
+          <form
+            action="https://swimparty10km.us14.list-manage.com/subscribe/post?u=b0d8bd484345c4f6875edf8f7&amp;id=ee382b71df&amp;f_id=005aa1e1f0"
+            method="post"
+            target="_blank"
+            style="display:flex;flex-direction:column;gap:1rem;"
+          >
+            {[
+              { id: 'mce-FNAME', name: 'FNAME', label: 'First name', type: 'text' },
+              { id: 'mce-LNAME', name: 'LNAME', label: 'Last name',  type: 'text' },
+              { id: 'mce-EMAIL', name: 'EMAIL', label: 'Email',       type: 'email' },
+            ].map(({ id, name, label, type }) => (
+              <div>
+                <label for={id} style="display:block;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">{label}</label>
+                <input id={id} name={name} type={type} required
+                  style="width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#ffffff;padding:0.75rem 1rem;font-family:'Didact Gothic',sans-serif;font-size:0.9rem;outline:none;" />
+              </div>
+            ))}
+            {/* Mailchimp bot-protection honeypot — must stay hidden */}
+            <div aria-hidden="true" style="position:absolute;left:-5000px;">
+              <input type="text" name="b_b0d8bd484345c4f6875edf8f7_ee382b71df" tabindex="-1" value="" />
+            </div>
+            <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;margin-top:0.5rem;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="panel py-20 text-center px-6">
+    <div class="max-w-xl mx-auto">
+      <h2 class="section-heading mb-6">Become a partner</h2>
+      <hr class="carrd-rule" />
+      <p class="mb-10" style="color:rgba(255,255,255,0.75);">
+        Interested in sponsoring SwimParty 10km? We offer visibility packages for brands aligned with ocean sports, wellness, and the Algarve. Get in touch and we'll share the partnership deck.
+      </p>
+      <a href="mailto:info@swimparty10km.com" class="btn btn-pink">Partner with us</a>
+    </div>
+  </section>
+
+</Base>

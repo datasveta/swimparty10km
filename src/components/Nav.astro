@@ -1,0 +1,112 @@
+---
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/race', label: 'Race' },
+  { href: '/regulations', label: 'Regulations' },
+  { href: '/plan', label: 'Plan your visit' },
+  { href: '/team', label: 'Team' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
+];
+const current = Astro.url.pathname;
+---
+
+<style is:global>
+  @media (min-width: 900px) {
+    #sp-desk { display: flex !important; }
+    #sp-burger { display: none !important; }
+    #sp-mobile-menu { display: none !important; }
+  }
+  #sp-nav-link:hover { color: #ffffff !important; }
+  #sp-reg-btn:hover { background-color: #DF206C !important; transform: scale(1.04) !important; }
+  .sp-mlink:hover { color: #ffffff !important; background: rgba(255,255,255,0.04) !important; }
+</style>
+
+<!-- Sticky header bar -->
+<header style="position:sticky;top:0;z-index:50;background-color:rgba(20,20,23,0.82);-webkit-backdrop-filter:blur(0.75rem);backdrop-filter:blur(0.75rem);border-bottom:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:72rem;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:3.75rem;gap:1rem;">
+
+    <!-- Logo / site title -->
+    <a href="/" style="font-family:'Dela Gothic One',cursive;font-size:1rem;text-transform:uppercase;letter-spacing:0.15rem;color:#ffffff;text-decoration:none;white-space:nowrap;flex-shrink:0;">SwimParty 10km</a>
+
+    <!-- Desktop nav — hidden by default, shown via media query -->
+    <div id="sp-desk" style="display:none;align-items:center;gap:1.75rem;flex-shrink:0;">
+      {links.map(({ href, label }) => {
+        const isActive = current === href || (href !== '/' && current.startsWith(href));
+        return (
+          <a
+            href={href}
+            id="sp-nav-link"
+            style={`font-family:'Didact Gothic',sans-serif;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.25rem;color:${isActive ? '#DF206C' : 'rgba(255,255,255,0.75)'};text-decoration:none;transition:color 0.2s;white-space:nowrap;`}
+          >{label}</a>
+        );
+      })}
+      <a
+        href="https://multicrono.com/v1/swim-party-algarve-2026/"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="sp-reg-btn"
+        style="font-family:'Didact Gothic',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.25rem;padding:0.5rem 1.25rem;color:#ffffff;border:2px solid #DF206C;text-decoration:none;white-space:nowrap;transition:background-color 0.25s,transform 0.25s;flex-shrink:0;"
+      >Register</a>
+    </div>
+
+    <!-- Hamburger — visible on mobile, hidden ≥900px -->
+    <button
+      id="sp-burger"
+      aria-label="Menu"
+      aria-expanded="false"
+      style="display:flex;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;padding:0.4rem;background:none;border:none;flex-shrink:0;"
+    >
+      <span style="display:block;width:20px;height:2px;background:#ffffff;transition:transform 0.2s,opacity 0.2s;" id="sp-b1"></span>
+      <span style="display:block;width:20px;height:2px;background:#ffffff;transition:transform 0.2s,opacity 0.2s;" id="sp-b2"></span>
+      <span style="display:block;width:20px;height:2px;background:#ffffff;transition:transform 0.2s,opacity 0.2s;" id="sp-b3"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile dropdown — hidden by default via `hidden` attribute -->
+<div id="sp-mobile-menu" hidden style="position:sticky;top:3.75rem;z-index:49;background-color:rgba(14,14,17,0.97);-webkit-backdrop-filter:blur(1rem);backdrop-filter:blur(1rem);border-bottom:1px solid rgba(255,255,255,0.06);">
+  {links.map(({ href, label }) => {
+    const isActive = current === href || (href !== '/' && current.startsWith(href));
+    return (
+      <a
+        href={href}
+        class="sp-mlink"
+        style={`display:block;padding:1rem 1.5rem;font-family:'Didact Gothic',sans-serif;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.25rem;color:${isActive ? '#DF206C' : 'rgba(255,255,255,0.7)'};text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s,background 0.2s;`}
+      >{label}</a>
+    );
+  })}
+  <a
+    href="https://multicrono.com/v1/swim-party-algarve-2026/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="sp-mlink"
+    style="display:block;padding:1rem 1.5rem;font-family:'Didact Gothic',sans-serif;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.25rem;color:#DF206C;text-decoration:none;transition:color 0.2s,background 0.2s;"
+  >Register now →</a>
+</div>
+
+<script>
+  const burger = document.getElementById('sp-burger');
+  const menu = document.getElementById('sp-mobile-menu');
+  const b1 = document.getElementById('sp-b1');
+  const b2 = document.getElementById('sp-b2');
+  const b3 = document.getElementById('sp-b3');
+
+  burger?.addEventListener('click', () => {
+    const isOpen = !menu?.hasAttribute('hidden');
+    if (isOpen) {
+      menu?.setAttribute('hidden', '');
+      burger.setAttribute('aria-expanded', 'false');
+      if (b1) b1.style.transform = '';
+      if (b2) b2.style.opacity = '1';
+      if (b3) b3.style.transform = '';
+    } else {
+      menu?.removeAttribute('hidden');
+      burger.setAttribute('aria-expanded', 'true');
+      if (b1) b1.style.transform = 'rotate(45deg) translate(5px,5px)';
+      if (b2) b2.style.opacity = '0';
+      if (b3) b3.style.transform = 'rotate(-45deg) translate(5px,-5px)';
+    }
+  });
+</script>

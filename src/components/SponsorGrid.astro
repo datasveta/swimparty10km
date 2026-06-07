@@ -1,0 +1,31 @@
+---
+interface Sponsor {
+  name: string;
+  logo?: string;
+  url?: string;
+}
+
+interface Props {
+  sponsors: Sponsor[];
+}
+
+const { sponsors } = Astro.props;
+---
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+  {sponsors.map((s) => (
+    <a
+      href={s.url ?? '#'}
+      target={s.url ? '_blank' : undefined}
+      rel="noopener noreferrer"
+      class="flex items-center justify-center h-16 rounded-xl border border-white/10 bg-charcoal-700 px-4 hover:border-bronze-500/40 hover:bg-charcoal-600 transition-all"
+      title={s.name}
+    >
+      {s.logo ? (
+        <img src={s.logo} alt={s.name} class="max-h-9 max-w-full object-contain" />
+      ) : (
+        <span class="text-xs font-semibold text-slate-400 text-center leading-tight">{s.name}</span>
+      )}
+    </a>
+  ))}
+</div>

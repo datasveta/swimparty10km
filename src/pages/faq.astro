@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  { q: 'What distances are available?', a: 'Solo 5km, Solo 10km, and Trio Relay 10km (legs: 3.2 km + 1.8 km + 5 km). All start from the Benagil and Carvoeiro area on September 12, 2026.' },
+  { q: 'Where does the race go?', a: 'Point-to-point along the Algarve coast from Benagil & Carvoeiro beaches to Ferragudo Praia dos Caneiros.' },
+  { q: 'What is included in the registration fee?', a: 'Electronic chip timing, official swim cap, event t-shirt, nutrition & drinks, in/out-of-water support, safety cover (including Marine Police), transport for departure/arrival, and the post-race beach party with lunch.' },
+  { q: 'Is a tow float compulsory?', a: 'Yes — mandatory for all participants. It helps the safety team identify and monitor swimmers. Tow floats are provided for swimmer identification on the day.' },
+  { q: 'Do I need a wetsuit?', a: 'Wetsuits are optional. Sea temperature in the Algarve in September is typically 21–24°C. Final guidance will be in the pre-race briefing.' },
+  { q: 'What safety cover is on the water?', a: 'Safety kayakers along the full route, a dedicated escort boat for the 10 km, Marine Police, a medical team at the finish, and buoys marking the full course.' },
+  { q: 'How does the Trio Relay work?', a: 'Three swimmers cover 10 km in legs: 3.2 km + 1.8 km + 5 km. Each swimmer swims their leg continuously in the water — there is no touching a boat between legs. Each swimmer needs their own tow float.' },
+  { q: 'Where do I register?', a: 'Via Multicrono at multicrono.com — our official chip-timing partner. See the Race page for full pricing by period.' },
+  { q: 'Is transport included?', a: 'Yes — given the point-to-point course, transport for departure and arrival is included in every registration. Details in the pre-race briefing sent two weeks before race day.' },
+  { q: 'What is Swim Week?', a: 'A programme of activities the week leading up to race day: morning guided sea swims at 7:00 AM, yoga, pilates, stretching, cultural Algarve experiences, and a Thursday evening Sunset Drinks with Olympic Athletes at Vila Vita Parc Resort & Spa.' },
+  { q: 'Are there hotel discounts?', a: 'Yes. Mirachoro Carvoeiro Hotel offers 10% off (code SP26, Sep 10–14). Vale da Lapa Village Resort offers 15% off (code SWIMPARTYLAPA). See the Experience page for details.' },
+  { q: 'Where can I follow results?', a: 'Live tracking and final results are on multicrono.com. The link will be shared on @swimparty10km on Instagram and Facebook as soon as results are available.' },
+];
+---
+
+<Base title="FAQ" description="Frequently asked questions about SwimParty 10km.">
+
+  <section class="panel-transparent py-24 text-center px-6">
+    <h1 class="font-display uppercase mb-4 page-title">FAQ</h1>
+    <p style="color:rgba(255,255,255,0.7);">Common questions about the race and Swim Week.</p>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Questions &amp; answers</h2>
+      <hr class="carrd-rule" />
+      <div>
+        {faqs.map(({ q, a }) => (
+          <details class="faq-item">
+            <summary class="faq-q">
+              <span>{q}</span>
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="flex-shrink:0;transition:transform 0.2s;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="faq-a">{a}</div>
+          </details>
+        ))}
+      </div>
+      <div class="mt-12 pt-8 text-center" style="border-top:1px solid rgba(255,255,255,0.1);">
+        <p class="text-sm mb-6" style="color:rgba(255,255,255,0.6);">Still have a question?</p>
+        <a href="/contact" class="btn btn-pink">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 0;
+    cursor: pointer;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #ffffff;
+    list-style: none;
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: rgba(255,255,255,0.85); }
+  .faq-q::-webkit-details-marker { display: none; }
+  details[open] .faq-q svg { transform: rotate(180deg); }
+  .faq-a {
+    padding-bottom: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.7);
+  }
+</style>

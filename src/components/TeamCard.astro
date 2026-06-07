@@ -1,0 +1,31 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  bio?: string[];
+  photo?: string;
+}
+
+const { name, role, bio = [], photo } = Astro.props;
+---
+
+<div class="flex flex-col items-center text-center gap-3">
+  {photo ? (
+    <img src={photo} alt={name} class="w-28 h-28 rounded-full object-cover shadow-md border-2 border-bronze-500/30" />
+  ) : (
+    <div class="w-28 h-28 rounded-full bg-charcoal-700 border-2 border-bronze-500/20 flex items-center justify-center shadow-md">
+      <svg class="w-12 h-12 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+      </svg>
+    </div>
+  )}
+  <div>
+    <p class="font-semibold text-white">{name}</p>
+    <p class="text-xs text-bronze-400 font-semibold uppercase tracking-wide mt-0.5">{role}</p>
+    {bio.length > 0 && (
+      <ul class="mt-2 space-y-0.5">
+        {bio.map((line) => <li class="text-xs text-slate-400">{line}</li>)}
+      </ul>
+    )}
+  </div>
+</div>

@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Regulations" description="SwimParty 10km 2026 — official regulation and logistics document.">
+
+  <section class="panel-transparent py-24 text-center px-6">
+    <h1 class="font-display uppercase mb-4 page-title">Regulations &amp; Logistics</h1>
+    <p style="color:rgba(255,255,255,0.7);">Official event documents — SwimParty 10km 2026.</p>
+  </section>
+
+  <section class="panel py-16">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="pdf-grid">
+
+        <!-- English -->
+        <div class="pdf-block">
+          <div class="pdf-label-row">
+            <h2 class="section-heading" style="font-size:1.1rem;letter-spacing:0.3rem;">EN</h2>
+            <a href="/terms/regulation-en.pdf" download class="pdf-download-btn">&#8595; Download</a>
+          </div>
+          <hr class="carrd-rule" />
+          <div class="pdf-viewer-wrap">
+            <iframe
+              src="/terms/regulation-en.pdf"
+              title="Regulation & Logistics (English)"
+              class="pdf-iframe"
+            ></iframe>
+            <div class="pdf-fallback">
+              <p>PDF preview is not available on this device.</p>
+              <a href="/terms/regulation-en.pdf" download class="btn btn-pink" style="margin-top:1.25rem;">Download (EN)</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Portuguese -->
+        <div class="pdf-block">
+          <div class="pdf-label-row">
+            <h2 class="section-heading" style="font-size:1.1rem;letter-spacing:0.3rem;">PT</h2>
+            <a href="/terms/regulation-pt.pdf" download class="pdf-download-btn">&#8595; Download</a>
+          </div>
+          <hr class="carrd-rule" />
+          <div class="pdf-viewer-wrap">
+            <iframe
+              src="/terms/regulation-pt.pdf"
+              title="Regulamento & Logística (Português)"
+              class="pdf-iframe"
+            ></iframe>
+            <div class="pdf-fallback">
+              <p>PDF preview is not available on this device.</p>
+              <a href="/terms/regulation-pt.pdf" download class="btn btn-pink" style="margin-top:1.25rem;">Download (PT)</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .pdf-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  @media (max-width: 768px) {
+    .pdf-grid { grid-template-columns: 1fr; }
+  }
+
+  .pdf-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pdf-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .pdf-download-btn {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.4rem 0.9rem;
+    transition: color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .pdf-download-btn:hover {
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .pdf-viewer-wrap {
+    position: relative;
+    flex: 1;
+  }
+
+  .pdf-iframe {
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: block;
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Show fallback only when iframe fails (mobile) */
+  .pdf-fallback {
+    display: none;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    font-size: 0.875rem;
+  }
+</style>
+
+<script>
+  /* On iOS/mobile, iframes can't render PDFs — show fallback instead */
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    document.querySelectorAll('.pdf-iframe').forEach(el => {
+      (el as HTMLElement).style.display = 'none';
+    });
+    document.querySelectorAll('.pdf-fallback').forEach(el => {
+      (el as HTMLElement).style.display = 'block';
+    });
+  }
+</script>

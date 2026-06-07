@@ -1,0 +1,121 @@
+---
+import SocialIcons from './SocialIcons.astro';
+---
+
+<style>
+  footer {
+    background-color: rgba(20, 20, 23, 0.85);
+    -webkit-backdrop-filter: blur(0.75rem);
+    backdrop-filter: blur(0.75rem);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+
+  /* Top block — social + register, centered */
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .register-link {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.35rem;
+    padding: 0.75rem 1.5rem;
+    color: #ffffff;
+    border: 2px solid #DF206C;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+  .register-link:hover {
+    background-color: #DF206C;
+    transform: scale(1.04);
+  }
+
+  /* Divider */
+  .footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    margin: 0 auto 2rem;
+  }
+
+  /* Bottom block — logo left, info right, the pair is centered as a unit */
+  .footer-bottom {
+    display: inline-flex;
+    align-items: stretch;
+    gap: 1.25rem;
+    text-align: center;
+  }
+  .footer-logo-wrap {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .footer-logo-img {
+    height: 100%;
+    width: auto;
+    max-height: 4.5rem;
+    object-fit: contain;
+    opacity: 0.6;
+    display: block;
+  }
+  .footer-info {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 2;
+    text-align: center;
+  }
+  .footer-info a {
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-info a:hover { color: rgba(255,255,255,0.65); }
+
+  @media (max-width: 480px) {
+    .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-info { text-align: center; }
+    .footer-logo-img { height: 2rem; max-height: none; }
+  }
+</style>
+
+<footer>
+  <div class="footer-top">
+    <SocialIcons />
+    <a
+      href="https://multicrono.com/v1/swim-party-algarve-2026/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="register-link"
+    >Register now</a>
+  </div>
+
+  <hr class="footer-divider" />
+
+  <div class="footer-bottom">
+    <a href="/" class="footer-logo-wrap">
+      <img
+        src="/images/logo-white.png"
+        alt="SwimParty 10km"
+        class="footer-logo-img"
+      />
+    </a>
+    <p class="footer-info">
+      September 12, 2026 · Algarve, Portugal<br />
+      <a href="mailto:info@swimparty10km.com">info@swimparty10km.com</a><br />
+      &copy; {new Date().getFullYear()} SwimParty 10km
+    </p>
+  </div>
+</footer>

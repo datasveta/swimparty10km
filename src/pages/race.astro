@@ -1,0 +1,249 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Race" description="Race distances, pricing, and route for SwimParty 10km — September 12, 2026, Algarve.">
+
+  <section class="panel-transparent py-24 text-center px-6">
+    <p class="text-xs uppercase mb-4" style="letter-spacing:0.325rem;color:rgba(255,255,255,0.6);">September 12, 2026</p>
+    <h1 class="font-display uppercase mb-4 page-title">Race information</h1>
+    <p style="color:rgba(255,255,255,0.7);">Benagil &amp; Carvoeiro → Ferragudo Praia dos Caneiros</p>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Distances</h2>
+      <hr class="carrd-rule" />
+      <div class="space-y-10">
+        <div>
+          <h3 class="text-base font-bold mb-2" style="text-transform:uppercase;letter-spacing:0.15rem;">5 km — Solo</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.7);">Open-water swim along the Algarve cliff coast. Suitable for experienced open-water swimmers.</p>
+          <ul class="bullets text-sm" style="color:rgba(255,255,255,0.55);">
+            <li>Tow float required</li>
+            <li>Feeding station at 2.5 km</li>
+            <li>Safety kayakers throughout</li>
+            <li>Chip timing, cap, t-shirt included</li>
+          </ul>
+        </div>
+        <hr class="carrd-rule" />
+        <div>
+          <h3 class="text-base font-bold mb-2" style="text-transform:uppercase;letter-spacing:0.15rem;">10 km — Solo</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.7);">Full point-to-point from Benagil &amp; Carvoeiro to Ferragudo Praia dos Caneiros.</p>
+          <ul class="bullets text-sm" style="color:rgba(255,255,255,0.55);">
+            <li>Tow float required</li>
+            <li>Feeding stations at 3 km &amp; 7 km</li>
+            <li>Safety kayakers + escort boat</li>
+            <li>Marine Police security</li>
+            <li>Chip timing, cap, t-shirt included</li>
+          </ul>
+        </div>
+        <hr class="carrd-rule" />
+        <div>
+          <h3 class="text-base font-bold mb-2" style="text-transform:uppercase;letter-spacing:0.15rem;">10 km — Trio Relay</h3>
+          <p class="text-sm mb-3" style="color:rgba(255,255,255,0.7);">Three swimmers, one team. Legs: 3.2 km + 1.8 km + 5 km.</p>
+          <ul class="bullets text-sm" style="color:rgba(255,255,255,0.55);">
+            <li>Tow float per swimmer</li>
+            <li>Same safety cover as solo 10 km</li>
+            <li>Team chip timing</li>
+            <li>Cap + t-shirt per swimmer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Pricing</h2>
+      <hr class="carrd-rule" />
+      <p class="text-sm mb-8" style="color:rgba(255,255,255,0.55);">
+        Register via <a href="https://multicrono.com/v1/swim-party-algarve-2026/" target="_blank" rel="noopener noreferrer" style="color:#DF206C;text-decoration:none;">multicrono.com</a>. All prices in euros.
+      </p>
+      <div class="overflow-x-auto mb-8">
+        <table style="width:100%;font-size:0.9rem;border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.15);">
+              {['Period','Solo 10km','Solo 5km','Trio team','Trio / person'].map(h => (
+                <th style="padding:0 1rem 0.75rem 0;text-align:left;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.4);font-weight:400;">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { label: 'Early Bird', dates: 'Jan 8 – Feb 14', solo10: '€100', solo5: '€70', team: '€170', pp: '€57' },
+              { label: 'Full On',    dates: 'Feb 15 – Jun 30', solo10: '€130', solo5: '€90', team: '€220', pp: '€74' },
+              { label: 'Last Minute', dates: 'Jul 1 – Aug 12', solo10: '€180', solo5: '€120', team: '€300', pp: '€100' },
+            ].map(row => (
+              <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+                <td style="padding:0.9rem 1rem 0.9rem 0;">
+                  <span style="font-weight:600;color:#ffffff;">{row.label}</span><br />
+                  <span style="font-size:0.7rem;color:rgba(255,255,255,0.4);">{row.dates}</span>
+                </td>
+                <td style="padding:0.9rem 1rem;font-weight:600;">{row.solo10}</td>
+                <td style="padding:0.9rem 1rem;font-weight:600;">{row.solo5}</td>
+                <td style="padding:0.9rem 1rem;font-weight:600;">{row.team}</td>
+                <td style="padding:0.9rem 1rem;font-weight:600;">{row.pp}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <a href="https://multicrono.com/v1/swim-party-algarve-2026/" target="_blank" rel="noopener noreferrer" class="btn btn-pink">Register now!</a>
+    </div>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Every registration includes</h2>
+      <hr class="carrd-rule" />
+      <ul class="bullets" style="color:rgba(255,255,255,0.85);">
+        <li>Electronic chip timing</li>
+        <li>Official event swim cap</li>
+        <li>Event t-shirt</li>
+        <li>Nutrition &amp; drinks on course (Precision Fuel &amp; Hydration)</li>
+        <li>In/out-of-water support</li>
+        <li>Safety cover &amp; Marine Police security</li>
+        <li>Transport for departure/arrival</li>
+        <li>Post-race beach party with lunch</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Course route</h2>
+      <hr class="carrd-rule" />
+      <p class="text-sm mb-10" style="color:rgba(255,255,255,0.55);">Benagil &amp; Carvoeiro → Ferragudo Praia dos Caneiros, Algarve coast</p>
+
+      <!-- 5 km -->
+      <h3 class="route-label">5 km</h3>
+      <div class="route-pair">
+        <img src="/images/route/ENcroquiSwimparty5km2026.jpg" alt="5km route map (EN)" />
+        <img src="/images/route/PTcroquiSwimparty5km2026.jpg" alt="5km route map (PT)" />
+      </div>
+
+      <!-- 10 km solo -->
+      <h3 class="route-label">10 km solo</h3>
+      <div class="route-pair">
+        <img src="/images/route/ENcroquiSwimparty10km2026_10km_solo.jpg" alt="10km solo route map (EN)" />
+        <img src="/images/route/PTcroquiSwimparty10km2026_10km_solo.jpg" alt="10km solo route map (PT)" />
+      </div>
+
+      <!-- 10 km trio -->
+      <h3 class="route-label">10 km trio relay</h3>
+      <div class="route-pair">
+        <img src="/images/route/ENcroquiSwimparty10km2026_10km_trio.jpg" alt="10km trio route map (EN)" />
+        <img src="/images/route/PTcroquiSwimparty10km2026_10km_trio.jpg" alt="10km trio route map (PT)" />
+      </div>
+    </div>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Safety on the water</h2>
+      <hr class="carrd-rule" />
+      <ul class="bullets" style="color:rgba(255,255,255,0.85);">
+        <li>Safety kayakers along the full route</li>
+        <li>Safety escort boat for the 10 km</li>
+        <li>Marine Police security</li>
+        <li>Medical support team at finish</li>
+        <li>Tow floats mandatory for all swimmers</li>
+        <li>Buoys marking the full race route</li>
+      </ul>
+    </div>
+  </section>
+
+<!-- Lightbox overlay -->
+<div id="lb-overlay" role="dialog" aria-modal="true" aria-label="Route map enlarged">
+  <button id="lb-close" aria-label="Close">&#x2715;</button>
+  <img id="lb-img" src="" alt="" />
+</div>
+
+</Base>
+
+<style>
+  .route-label {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    color: rgba(255,255,255,0.45);
+    margin: 2rem 0 0.75rem;
+  }
+  .route-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .route-pair img {
+    width: 100%;
+    display: block;
+    border-radius: 2px;
+    cursor: zoom-in;
+    transition: opacity 0.15s;
+  }
+  .route-pair img:hover { opacity: 0.85; }
+
+  #lb-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.92);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    padding: 1.5rem;
+  }
+  #lb-overlay.open { display: flex; }
+  #lb-img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+  }
+  #lb-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    font-size: 2rem;
+    line-height: 1;
+    color: rgba(255,255,255,0.7);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+  #lb-close:hover { color: #ffffff; }
+  @media (max-width: 540px) {
+    .route-pair { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('lb-overlay');
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement;
+  const lbClose = document.getElementById('lb-close');
+
+  document.querySelectorAll('.route-pair img').forEach(img => {
+    img.addEventListener('click', () => {
+      const src = (img as HTMLImageElement).src;
+      const alt = (img as HTMLImageElement).alt;
+      if (lbImg) { lbImg.src = src; lbImg.alt = alt; }
+      overlay?.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function close() {
+    overlay?.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lbImg) lbImg.src = '';
+  }
+
+  lbClose?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+  overlay?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+</script>

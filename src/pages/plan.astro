@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Plan your visit" description="Swim Week September 2026 — morning sea swims, yoga, sunset drinks with Olympic athletes, and hotel partners.">
+
+  <section class="panel-transparent py-24 text-center px-6">
+    <p class="text-xs uppercase mb-4" style="letter-spacing:0.325rem;color:rgba(255,255,255,0.6);">September 2026 · Algarve</p>
+    <h1 class="font-display uppercase mb-4 page-title">Swim Week</h1>
+    <p style="color:rgba(255,255,255,0.7);">A full week of ocean, community, and coastline — beyond the race.</p>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="section-heading mb-6">What's on</h2>
+      <hr class="carrd-rule" />
+      <div class="space-y-10">
+        {[
+          { when: 'Daily · 7:00 AM', title: 'Morning Guided Swims', text: 'Start each day in the water. Guided swims along the local Algarve coastal spots — ideal for acclimatising to the water temperature, exploring hidden coves and sea caves, and meeting fellow swimmers.' },
+          { when: 'Thursday September 10 · Vila Vita Parc Resort & Spa', title: 'Sunset Drinks with Olympic Athletes', text: 'An exclusive evening at Vila Vita Parc Resort & Spa. Network with Olympic swimmers, share stories, and celebrate the world of open-water swimming — the perfect start to race weekend.' },
+          { when: 'Daily sessions', title: 'Movement & Preparation', text: 'Stretching, yoga, and pilates sessions throughout the week. All levels welcome — from restorative morning stretches to dynamic mobility work.' },
+          { when: 'Throughout the week', title: 'Cultural & Algarve Experiences', text: 'Local village exploration, coastal landscape tours, gastronomy experiences, and historic site visits. The week is as much about the place as the swimming.' },
+          { when: 'Saturday September 12', title: 'Race Day + Beach Party', text: 'All three distances start with staggered wave starts. The day closes with the post-race beach party and lunch — included for all registered participants.' },
+        ].map(({ when, title, text }) => (
+          <div>
+            <p class="text-xs uppercase mb-2" style="letter-spacing:0.25rem;color:rgba(255,255,255,0.5);">{when}</p>
+            <h3 class="text-base font-bold mb-3" style="text-transform:uppercase;letter-spacing:0.12rem;">{title}</h3>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.75);">{text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Accommodation partners</h2>
+      <hr class="carrd-rule" />
+      <p class="text-sm mb-10" style="color:rgba(255,255,255,0.5);">Exclusive discounts for SwimParty 10km participants.</p>
+      <div class="grid md:grid-cols-2 gap-8">
+        {[
+          { name: 'Mirachoro Carvoeiro Hotel', discount: '10% off · Code: SP26', items: ['Walking distance from the ocean and Swim Party activities', 'Dates: September 10–14, 2026', 'Use code SP26 when booking'] },
+          { name: 'Vale da Lapa Village Resort', discount: '15% off · Code: SWIMPARTYLAPA', items: ['15 minutes from Carvoeiro beach', 'Ideal for swim clubs, teams, groups & families', 'Use code SWIMPARTYLAPA when booking'] },
+        ].map(({ name, discount, items }) => (
+          <div style="border:1px solid rgba(255,255,255,0.15);padding:2rem;">
+            <h3 class="font-bold text-base mb-1">{name}</h3>
+            <p class="text-xs uppercase mb-4" style="letter-spacing:0.2rem;color:#DF206C;">{discount}</p>
+            <ul class="bullets text-sm" style="color:rgba(255,255,255,0.7);">
+              {items.map(item => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="panel py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="section-heading mb-6">Getting to the Algarve</h2>
+      <hr class="carrd-rule" />
+      <ul class="bullets" style="color:rgba(255,255,255,0.85);">
+        <li>Faro Airport (FAO) — approximately 50 min drive to Carvoeiro</li>
+        <li>Direct flights from London, Lisbon, Amsterdam, Porto and more</li>
+        <li>Sea temperature in September: 21–24°C</li>
+        <li>Wetsuit optional — conditions are typically calm</li>
+      </ul>
+    </div>
+  </section>
+
+</Base>

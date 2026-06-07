@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ─── Fixed background — Carrd exact: dark overlay + photo ─────────────────── */
+body::before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(20,20,23,0.549), rgba(20,20,23,0.549)),
+    url('/images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ─── Base — Carrd uses 16pt (~21px) as root; we use 18px for comfortable web reading ── */
+html { font-size: 20px; }
+
+body {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 1rem;       /* 18px */
+  line-height: 1.72;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+/* ─── Content wrapper above the fixed bg ───────────────────────────────────── */
+.site-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+/* ─── Panel: blurred translucent — Carrd container style-1 ─────────────────── */
+.panel {
+  background-color: rgba(20, 20, 23, 0.478);
+  -webkit-backdrop-filter: blur(0.75rem);
+  backdrop-filter: blur(0.75rem);
+  width: 100%;
+}
+
+/* ─── Transparent section (hero) ───────────────────────────────────────────── */
+.panel-transparent {
+  background-color: transparent;
+  width: 100%;
+}
+
+/* ─── Typography ────────────────────────────────────────────────────────────── */
+
+/* Dela Gothic One — hero title + pink accent labels only */
+.font-display {
+  font-family: 'Dela Gothic One', cursive;
+  font-weight: 400;
+}
+
+/* Page hero h1 — fluid size, never overflows on mobile */
+.page-title {
+  font-size: clamp(36px, 6vw, 63px);
+  letter-spacing: clamp(0.02em, 1vw, 0.05em);
+  line-height: 1.1;
+}
+
+/* Didact Gothic section headings — Carrd style-3 / style-6 */
+.section-heading {
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 4.25rem;
+  padding: 0 2.125rem;
+  padding-left: calc(0.4rem + 2.125rem);
+  font-family: 'Didact Gothic', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+.btn:hover { transform: scale(1.0425); }
+
+.btn-pink { color: #DF206C; border-color: #DF206C; }
+.btn-pink:hover { background-color: #DF206C; color: #ffffff; }
+
+/* ─── Divider ───────────────────────────────────────────────────────────────── */
+hr.carrd-rule {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin: 0 0 2.5rem 0;
+}
+
+/* ─── Bullet lists ──────────────────────────────────────────────────────────── */
+ul.bullets {
+  list-style: disc;
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+ul.bullets li { margin-bottom: 0.25rem; }
+
+/* ─── Mobile ────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  html { font-size: 17px; }
+  .section-heading { font-size: 24px; letter-spacing: 0.3rem; }
+  .btn { height: 3.5rem; font-size: 0.7rem; letter-spacing: 0.3rem; }
+  .py-20 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .py-24 { padding-top: 3.5rem !important; padding-bottom: 3.5rem !important; }
+  .py-16 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+}

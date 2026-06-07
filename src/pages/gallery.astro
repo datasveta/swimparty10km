@@ -1,0 +1,335 @@
+---
+import Base from '../layouts/Base.astro';
+
+const gallery2025 = [
+  'Swim-Party-2025_by_JoeMann-0020.jpg',
+  'Swim-Party-2025_by_JoeMann-0023.jpg',
+  'Swim-Party-2025_by_JoeMann-0036.jpg',
+  'Swim-Party-2025_by_JoeMann-0989.jpg',
+  'Swim-Party-2025_by_JoeMann-1038.jpg',
+  'Swim-Party-2025_by_JoeMann-1101.jpg',
+  'Swim-Party-2025_by_JoeMann-113.jpg',
+  'Swim-Party-2025_by_JoeMann-1318.jpg',
+  'Swim-Party-2025_by_JoeMann-1352.jpg',
+  'Swim-Party-2025_by_JoeMann-143.jpg',
+  'Swim-Party-2025_by_JoeMann-268.jpg',
+  'Swim-Party-2025_by_JoeMann-285.jpg',
+  'Swim-Party-2025_by_JoeMann-327.jpg',
+  'Swim-Party-2025_by_JoeMann-341.jpg',
+  'Swim-Party-2025_by_JoeMann-357.jpg',
+  'Swim-Party-2025_by_JoeMann-379.jpg',
+  'Swim-Party-2025_by_JoeMann-408.jpg',
+  'Swim-Party-2025_by_JoeMann-447.jpg',
+  'Swim-Party-2025_by_JoeMann-45.jpg',
+  'Swim-Party-2025_by_JoeMann-53.jpg',
+  'Swim-Party-2025_by_JoeMann-556.jpg',
+  'Swim-Party-2025_by_JoeMann-637.jpg',
+  'Swim-Party-2025_by_JoeMann-67.jpg',
+  'Swim-Party-2025_by_JoeMann-708.jpg',
+  'Swim-Party-2025_by_JoeMann-80.jpg',
+  'Swim-Party-2025_by_JoeMann-823.jpg',
+  'Swim-Party-2025_by_JoeMann-880.jpg',
+];
+const gallery2024 = [
+  'Swim-Party_10km_2024-0059.jpg',
+  'Swim-Party_10km_2024-0077.jpg',
+  'Swim-Party_10km_2024-0079.jpg',
+  'Swim-Party_10km_2024-0085.jpg',
+  'Swim-Party_10km_2024-7017.jpg',
+  'Swim-Party_10km_2024-7096.jpg',
+  'Swim-Party_10km_2024-7217.jpg',
+  'Swim-Party_10km_2024-7373.jpg',
+  'Swim-Party_10km_2024-7397.jpg',
+  'Swim-Party_10km_2024-7446.jpg',
+  'Swim-Party_10km_2024-7941.jpg',
+  'Swim-Party_10km_2024-7962.jpg',
+  'Swim-Party_10km_2024-8075.jpg',
+  'Swim-Party_10km_2024-8086.jpg',
+  'Swim-Party_10km_2024-8178.jpg',
+  'Swim-Party_10km_2024-8426.jpg',
+  'Swim-Party_10km_2024-8948.jpg',
+  'Swim-Party_10km_2024-8988.jpg',
+  'Swim-Party_10km_2024-9027.jpg',
+  'Swim-Party_10km_2024-9052.jpg',
+];
+---
+
+<Base title="Gallery" description="Photos from SwimParty 10km editions.">
+
+  <!-- Header -->
+  <section class="panel-transparent py-24 text-center px-6">
+    <h1 class="font-display uppercase mb-4 page-title">Gallery</h1>
+    <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">2024 &amp; 2025 editions.</p>
+  </section>
+
+  <!-- 2025 -->
+  <section class="panel py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-2xl uppercase mb-6" style="letter-spacing:0.05em;">2025</h2>
+      <hr class="carrd-rule" />
+      {gallery2025.length > 0 ? (
+        <div class="gallery-grid">
+          {gallery2025.map((filename, i) => (
+            <button
+              class="gallery-item"
+              data-gallery="2025"
+              data-index={String(i)}
+              aria-label={`Open photo ${i + 1} of ${gallery2025.length}`}
+            >
+              <img
+                src={`/images/gallery/2025/${filename}`}
+                alt={`SwimParty 2025 — photo ${i + 1}`}
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
+      ) : (
+        <p style="color:rgba(255,255,255,0.35);font-size:0.875rem;font-style:italic;">
+          No 2025 photos yet.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- 2024 -->
+  <section class="panel py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-2xl uppercase mb-6" style="letter-spacing:0.05em;">2024</h2>
+      <hr class="carrd-rule" />
+      {gallery2024.length > 0 ? (
+        <div class="gallery-grid">
+          {gallery2024.map((filename, i) => (
+            <button
+              class="gallery-item"
+              data-gallery="2024"
+              data-index={String(i)}
+              aria-label={`Open photo ${i + 1} of ${gallery2024.length}`}
+            >
+              <img
+                src={`/images/gallery/2024/${filename}`}
+                alt={`SwimParty 2024 — photo ${i + 1}`}
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
+      ) : (
+        <p style="color:rgba(255,255,255,0.35);font-size:0.875rem;font-style:italic;">
+          No 2024 photos yet.
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Lightbox — must be inside Base so it lands inside <body> -->
+  <div id="lb-overlay" aria-modal="true" role="dialog" aria-label="Photo viewer">
+    <button id="lb-close" aria-label="Close">&#x2715;</button>
+    <button id="lb-prev" aria-label="Previous photo">&#8249;</button>
+    <div id="lb-img-wrap">
+      <img id="lb-photo" src="" alt="" />
+    </div>
+    <button id="lb-next" aria-label="Next photo">&#8250;</button>
+    <p id="lb-counter"></p>
+  </div>
+
+</Base>
+
+<style is:global>
+  /* Gallery grid */
+  .gallery-grid {
+    columns: 2;
+    column-gap: 0.5rem;
+  }
+  @media (min-width: 640px) { .gallery-grid { columns: 3; } }
+  @media (min-width: 900px) { .gallery-grid { columns: 4; } }
+
+  .gallery-item {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    cursor: zoom-in;
+    padding: 0;
+    background: none;
+    border: none;
+    width: 100%;
+  }
+  .gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease, opacity 0.2s;
+  }
+  .gallery-item:hover img { transform: scale(1.03); opacity: 0.82; }
+
+  /* Lightbox */
+  #lb-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.94);
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 0.5rem 2.5rem;
+  }
+  #lb-overlay.open { display: flex; }
+
+  #lb-img-wrap {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  #lb-photo {
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 0 80px rgba(0,0,0,0.9);
+    transition: opacity 0.15s ease;
+  }
+  #lb-photo.fading { opacity: 0; }
+
+  #lb-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: rgba(255,255,255,0.6);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    z-index: 2;
+    transition: color 0.15s;
+  }
+  #lb-close:hover { color: #fff; }
+
+  #lb-prev, #lb-next {
+    flex-shrink: 0;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: rgba(255,255,255,0.5);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+    transition: color 0.15s, transform 0.15s;
+    user-select: none;
+  }
+  #lb-prev:hover, #lb-next:hover { color: #fff; transform: scale(1.12); }
+  #lb-prev:disabled, #lb-next:disabled { opacity: 0.12; cursor: default; transform: none; }
+
+  #lb-counter {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 540px) {
+    #lb-prev, #lb-next { font-size: 2.5rem; padding: 0.5rem 0.6rem; }
+  }
+</style>
+
+<script>
+  (function () {
+    const overlay = document.getElementById('lb-overlay');
+    const photo   = document.getElementById('lb-photo') as HTMLImageElement | null;
+    const prev    = document.getElementById('lb-prev') as HTMLButtonElement | null;
+    const next    = document.getElementById('lb-next') as HTMLButtonElement | null;
+    const closeBtn = document.getElementById('lb-close');
+    const counter = document.getElementById('lb-counter');
+
+    if (!overlay || !photo || !prev || !next) return;
+
+    // Build image lists per gallery group
+    const groups: Record<string, { src: string; alt: string }[]> = {};
+    document.querySelectorAll<HTMLElement>('.gallery-item').forEach(btn => {
+      const g = btn.dataset.gallery!;
+      const idx = Number(btn.dataset.index);
+      const img = btn.querySelector('img') as HTMLImageElement;
+      if (!groups[g]) groups[g] = [];
+      groups[g][idx] = { src: img.src, alt: img.alt };
+    });
+
+    let activeGroup = '';
+    let activeIdx = 0;
+
+    function navigate(g: string, idx: number) {
+      const list = groups[g];
+      activeGroup = g;
+      activeIdx = idx;
+      photo.classList.add('fading');
+      setTimeout(() => {
+        photo.src = list[idx].src;
+        photo.alt = list[idx].alt;
+        photo.classList.remove('fading');
+      }, 120);
+      if (counter) counter.textContent = `${idx + 1} / ${list.length}`;
+      prev.disabled = idx === 0;
+      next.disabled = idx === list.length - 1;
+    }
+
+    function openLightbox(g: string, idx: number) {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      navigate(g, idx);
+    }
+
+    function closeLightbox() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      photo.src = '';
+    }
+
+    // Thumbnail clicks
+    document.querySelectorAll<HTMLElement>('.gallery-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openLightbox(btn.dataset.gallery!, Number(btn.dataset.index));
+      });
+    });
+
+    // Prev / next
+    prev.addEventListener('click', e => {
+      e.stopPropagation();
+      if (activeIdx > 0) navigate(activeGroup, activeIdx - 1);
+    });
+    next.addEventListener('click', e => {
+      e.stopPropagation();
+      if (activeIdx < groups[activeGroup].length - 1) navigate(activeGroup, activeIdx + 1);
+    });
+
+    // Close
+    closeBtn?.addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
+    overlay.addEventListener('click', closeLightbox);
+
+    // Keyboard
+    document.addEventListener('keydown', e => {
+      if (!overlay.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); if (activeIdx > 0) navigate(activeGroup, activeIdx - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); if (activeIdx < groups[activeGroup].length - 1) navigate(activeGroup, activeIdx + 1); }
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Touch swipe
+    let touchX = 0;
+    overlay.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    overlay.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) < 40) return;
+      if (dx < 0 && activeIdx < groups[activeGroup].length - 1) navigate(activeGroup, activeIdx + 1);
+      if (dx > 0 && activeIdx > 0) navigate(activeGroup, activeIdx - 1);
+    });
+  })();
+</script>
