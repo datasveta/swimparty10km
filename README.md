@@ -50,14 +50,8 @@ public/images/
   bg.jpg                  # full-page background (aim for 2500px+ wide)
   logo-white.png          # footer logo
   logo-black.png
-  content/
-    coast.jpg             # home page sections
-    swimming.jpg
-    support.jpg
-  team/
-    mariana.jpg
-    svetlana.jpg
-    daniela.jpg
+  content/                # home page sections
+  team/                   # org team
   gallery/
     2024/                 # filenames listed in src/pages/gallery.astro
     2025/
