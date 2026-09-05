@@ -16,16 +16,24 @@ import Base from '../layouts/Base.astro';
       <hr class="carrd-rule" />
       <div class="space-y-10">
         {[
-          { when: 'Daily · 7:00 AM', title: 'Morning Guided Swims', text: 'Start each day in the water. Guided swims along the local Algarve coastal spots — ideal for acclimatising to the water temperature, exploring hidden coves and sea caves, and meeting fellow swimmers.' },
-          { when: 'Thursday September 10 · Vila Vita Parc Resort & Spa', title: 'Sunset Drinks with Olympic Athletes', text: 'An exclusive evening at Vila Vita Parc Resort & Spa. Network with Olympic swimmers, share stories, and celebrate the world of open-water swimming — the perfect start to race weekend.' },
+          { when: 'Daily · Meet 6:45 AM', title: 'Morning Guided Swims', text: 'For everyone able to arrive early, we’ll be swimming together every day. We meet at 6:45 at the parking lot of the beach we share each day in the WhatsApp group, and get in the water by 7:00 for 2–4 km along one of the most beautiful stretches of coastline in the Algarve. Afterwards, as always, we regroup for breakfast at one of our favorite local cafés — because a swim isn’t complete without talking about swimming over coffee.' },
+          {
+            when: 'Thursday September 10 · 17:00–20:00',
+            title: 'Sunset Drinks & Olympic Talks',
+            text: 'Join us at <a href="https://vilavitaparc.com/pt" target="_blank" rel="noopener noreferrer" style="color:#DF206C;text-decoration:none;">Vila Vita Resort</a> for an evening of sunset cocktails, live music, and inspiring stories from <a href="https://www.instagram.com/swimparty10km/p/DcvjHnpjYeW/?img_index=2" target="_blank" rel="noopener noreferrer" style="color:#DF206C;text-decoration:none;">Michael Ilgner</a> — a Swim Party 10km participant and recently crowned European Champion in Water Polo.',
+            link: { href: 'https://docs.google.com/forms/d/e/1FAIpQLSdeJKJhy0WO8AztWgarbgfb8XHMz3vTSDM0BFfqxl5Er17H9g/viewform?usp=sharing&ouid=115544578908594205084', label: 'Reserve your spot' },
+          },
           { when: 'Daily sessions', title: 'Movement & Preparation', text: 'Stretching, yoga, and pilates sessions throughout the week. All levels welcome — from restorative morning stretches to dynamic mobility work.' },
           { when: 'Throughout the week', title: 'Cultural & Algarve Experiences', text: 'Local village exploration, coastal landscape tours, gastronomy experiences, and historic site visits. The week is as much about the place as the swimming.' },
           { when: 'Saturday September 12', title: 'Race Day + Beach Party', text: 'All three distances start with staggered wave starts. The day closes with the post-race beach party and lunch — included for all registered participants.' },
-        ].map(({ when, title, text }) => (
+        ].map(({ when, title, text, link }) => (
           <div>
             <p class="text-xs uppercase mb-2" style="letter-spacing:0.25rem;color:rgba(255,255,255,0.5);">{when}</p>
             <h3 class="text-base font-bold mb-3" style="text-transform:uppercase;letter-spacing:0.12rem;">{title}</h3>
-            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.75);">{text}</p>
+            <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.75);" set:html={text} />
+            {link && (
+              <a href={link.href} target="_blank" rel="noopener noreferrer" class="btn-inline-pink">{link.label}</a>
+            )}
           </div>
         ))}
       </div>
@@ -33,21 +41,31 @@ import Base from '../layouts/Base.astro';
   </section>
 
   <section class="panel py-20">
-    <div class="max-w-4xl mx-auto px-6">
+    <div class="max-w-5xl mx-auto px-6">
       <h2 class="section-heading mb-6">Accommodation partners</h2>
       <hr class="carrd-rule" />
       <p class="text-sm mb-10" style="color:rgba(255,255,255,0.5);">Exclusive discounts for SwimParty 10km participants.</p>
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         {[
-          { name: 'Mirachoro Carvoeiro Hotel', discount: '10% off · Code: SP26', items: ['Walking distance from the ocean and Swim Party activities', 'Dates: September 10–14, 2026', 'Use code SP26 when booking'] },
-          { name: 'Vale da Lapa Village Resort', discount: '15% off · Code: SWIMPARTYLAPA', items: ['15 minutes from Carvoeiro beach', 'Ideal for swim clubs, teams, groups & families', 'Use code SWIMPARTYLAPA when booking'] },
-        ].map(({ name, discount, items }) => (
+          { name: 'Mirachoro Carvoeiro Hotel', url: 'https://www.online-reservations.com/?hotelid=39473', discount: '10% off', code: 'SP26', items: ['Walking distance from the ocean and Swim Party activities', 'Dates: September 10–14, 2026'] },
+          { name: 'Vale da Lapa Village Resort', url: 'https://www.valedalapa.com/pt', discount: '15% off', code: 'SWIMPARTYLAPA', items: ['15 minutes from Carvoeiro beach', 'Ideal for swim clubs, teams, groups & families'] },
+          { name: 'Go rustic', discount: 'Animame Algarve · Alcantarilha', text: 'For the adventurous, join us in Alcantarilha at Animame Algarve, the glamping site run by our own Mariana Santos. You\'ll stay in a tipi tent, fully set up with Mirachoro hotel-quality beds and bedding, for a true wild-swimmer experience. Just let us know if you\'d like to book a spot camping with us.' },
+        ].map(({ name, url, discount, code, items, text }) => (
           <div style="border:1px solid rgba(255,255,255,0.15);padding:2rem;">
-            <h3 class="font-bold text-base mb-1">{name}</h3>
-            <p class="text-xs uppercase mb-4" style="letter-spacing:0.2rem;color:#DF206C;">{discount}</p>
-            <ul class="bullets text-sm" style="color:rgba(255,255,255,0.7);">
-              {items.map(item => <li>{item}</li>)}
-            </ul>
+            <h3 class="font-bold text-base mb-1">
+              {url ? <a href={url} target="_blank" rel="noopener noreferrer" class="hotel-link">{name} <span aria-hidden="true">↗</span></a> : name}
+            </h3>
+            <p class="text-xs uppercase mb-4" style="letter-spacing:0.2rem;color:#DF206C;">
+              {discount}{code && (<> · Code: <button type="button" class="code-chip" data-code={code}>{code}</button></>)}
+            </p>
+            {items && (
+              <ul class="bullets text-sm" style="color:rgba(255,255,255,0.7);">
+                {items.map(item => <li>{item}</li>)}
+              </ul>
+            )}
+            {text && (
+              <p class="text-sm leading-relaxed" style="color:rgba(255,255,255,0.7);">{text}</p>
+            )}
           </div>
         ))}
       </div>
@@ -59,6 +77,7 @@ import Base from '../layouts/Base.astro';
       <h2 class="section-heading mb-6">Getting to the Algarve</h2>
       <hr class="carrd-rule" />
       <ul class="bullets" style="color:rgba(255,255,255,0.85);">
+        <li>Our rental car partner <a href="https://autorent.pt/pt" target="_blank" rel="noopener noreferrer" style="color:#DF206C;text-decoration:none;">Auto Rent</a> will have a car ready for you right at the airport — use code <button type="button" class="code-chip" data-code="SWIM26">SWIM26</button> for 15% off</li>
         <li>Faro Airport (FAO) — approximately 50 min drive to Carvoeiro</li>
         <li>Direct flights from London, Lisbon, Amsterdam, Porto and more</li>
         <li>Sea temperature in September: 21–24°C</li>
@@ -68,3 +87,91 @@ import Base from '../layouts/Base.astro';
   </section>
 
 </Base>
+
+<style>
+  .btn-inline-pink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #DF206C;
+    border: 2px solid #DF206C;
+    text-decoration: none;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  }
+  .btn-inline-pink:hover {
+    transform: scale(1.0425);
+    background-color: #DF206C;
+    color: #ffffff;
+  }
+
+  .code-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    color: #DF206C;
+    background: none;
+    border: none;
+    border-bottom: 1px dashed rgba(223, 32, 108, 0.6);
+    padding: 0 0 0.05rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .code-chip:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+  .code-chip.copied {
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.6);
+  }
+
+  .hotel-link {
+    color: #DF206C;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .hotel-link:hover {
+    color: #ffffff;
+  }
+  .hotel-link span {
+    display: inline-block;
+    font-size: 0.65em;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+  }
+  .hotel-link:hover span {
+    transform: translate(0.15em, -0.15em);
+  }
+</style>
+
+<script>
+  document.addEventListener('click', async (e) => {
+    const target = e.target as HTMLElement;
+    const chip = target.closest<HTMLButtonElement>('.code-chip');
+    if (!chip) return;
+
+    const code = chip.dataset.code ?? '';
+    try {
+      await navigator.clipboard.writeText(code);
+    } catch {
+      return;
+    }
+
+    const original = chip.textContent;
+    chip.textContent = 'Copied ✓';
+    chip.classList.add('copied');
+    window.setTimeout(() => {
+      chip.textContent = original;
+      chip.classList.remove('copied');
+    }, 1500);
+  });
+</script>
