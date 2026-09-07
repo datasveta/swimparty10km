@@ -15,23 +15,21 @@ const partners = [
   { name: 'Vila Vita Parc', url: 'https://vilavitaparc.com/en', img: 'partners/vila-vita.png' },
   { name: 'IPDJ', url: 'https://ipdj.gov.pt/', img: 'partners/ipdj.png' },
   { name: 'Região de Turismo do Algarve', url: 'https://www.turismodoalgarve.pt/pt/Default.aspx', img: 'partners/turismo-algarve.png' },
-  { name: 'Herdade do Sobroso', url: 'https://www.herdadedosobroso.pt/', img: 'partners/herdade-sobroso.png' },
   { name: 'Outdoor Swimmer', url: 'https://outdoorswimmer.com/', img: 'partners/outdoor-swimmer.png' },
   { name: 'Sul Informação', url: 'https://www.sulinformacao.pt/', img: 'partners/sul-informacao.png' },
-  { name: 'Carvoeiro Tours', url: 'https://carvoeirotours.com/en/', img: 'partners/carvoeiro-tours.svg' },
-  { name: 'Shark Rebellion', url: 'https://sharkrebellion.com', img: 'partners/shark-rebellion.png' },
-  { name: 'Benagil Kayaking', url: 'https://benagilkayaking.com/', img: 'partners/benagil-kayaking.png' },
-  { name: 'Carvoeiro Cavas', url: 'https://www.carvoeirocaves.com/en/', img: 'partners/carvoeiro-cavas.png' },
+  { name: 'Carvoeiro Tours', url: 'https://carvoeirotours.com/en/', img: 'partners/carvoeiro-tours.png' },
   { name: 'Câmara Municipal de Lagoa', url: 'https://www.cm-lagoa.pt/', img: 'partners/camara-lagoa.png' },
   { name: 'FUZILEIROS do Algarve', url: 'https://associacaofuzileiros-afz.pt/', img: 'partners/fuzileiros.png' },
   { name: 'Brotherootz', url: 'https://brotherootzsup.com/', img: 'partners/brotherootz.png' },
   { name: 'Mirachoro Hotel', url: 'https://en.mirachorohotels.com/', img: 'partners/mirachoro.png' },
   { name: 'Algarve Essential', url: 'https://www.essential-algarve.com/', img: 'partners/algarve-essential.png' },
-  { name: 'Castores do Arade', url: 'https://www.instagram.com/kccarade/', img: 'partners/castores-arade.png' },
-  { name: 'Taruga Benagil Tours', url: 'https://tarugabenagiltours.pt/', img: 'partners/taruga-benagil.png' },
-  { name: 'Delta Cafés', url: 'https://deltacafes.com/en/', img: 'partners/delta-cafes.png' },
   { name: 'Urban Gym', url: 'https://urbangym.pt/', img: 'partners/urban-gym.png' },
   { name: 'Centianes Boat Trip', url: 'https://centianesboattrip.com/', img: 'partners/centianes-boat-trip.png' },
+  { name: 'Quinta João Clara', url: 'https://joaoclara.com/pt/', img: 'partners/quinta-joao-clara.jpg' },
+  { name: 'Angel Pilot', url: 'https://www.angelpilot.com/', img: 'partners/angel-pilot.png' },
+  { name: 'Auto Rent', url: 'https://autorent.pt/pt', img: 'partners/auto-rent.png' },
+  { name: 'Segredo dos Avós', url: 'https://www.instagram.com/segredodosavos/', img: 'partners/segredo-dos-avos.png', large: true },
+  { name: 'Gelados e Companhia', url: 'https://www.geladosecompanhia.com/', img: 'partners/gelados-companhia.png' },
 ];
 ---
 
@@ -67,9 +65,9 @@ const partners = [
       <h2 class="section-heading mb-6">Our Partners</h2>
       <hr class="carrd-rule" />
       <div class="partner-grid">
-        {partners.map(({ name, url, img }) => (
+        {partners.map(({ name, url, img, large }) => (
           <a href={url} target="_blank" rel="noopener noreferrer" title={name} class="partner-item">
-            <img src={`/images/${img}`} alt={name} />
+            <img src={`/images/${img}`} alt={name} style={large ? 'height:4rem;' : undefined} />
           </a>
         ))}
       </div>
