@@ -55,6 +55,7 @@ public/images/
   gallery/
     2024/                 # filenames listed in src/pages/gallery.astro
     2025/
+    2026/
   route/                  # route map images (used on race page)
   partners/               # partner logos
 ```
@@ -64,6 +65,8 @@ public/images/
 1. Drop the `.jpg` files into `public/images/gallery/2025/` (or `2024/`)
 2. Add each filename to the `gallery2025` (or `gallery2024`) array in `src/pages/gallery.astro`
 3. Commit and push — the gallery and lightbox update automatically
+
+Photographer credits: add a year to the `credits` object at the top of `src/pages/gallery.astro` (name, Instagram handle, URL) to enable the lightbox disclaimer and the Download + copy-credit panel for that year. Currently only 2026 (Paradiso Studio).
 
 ---
 

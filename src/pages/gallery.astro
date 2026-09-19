@@ -1,6 +1,174 @@
 ---
 import Base from '../layouts/Base.astro';
 
+const gallery2026 = [
+  'SwimParty_ParadisoStudio2026_Main-001.jpg',
+  'SwimParty_ParadisoStudio2026_Main-002.jpg',
+  'SwimParty_ParadisoStudio2026_Main-003.jpg',
+  'SwimParty_ParadisoStudio2026_Main-004.jpg',
+  'SwimParty_ParadisoStudio2026_Main-005.jpg',
+  'SwimParty_ParadisoStudio2026_Main-006.jpg',
+  'SwimParty_ParadisoStudio2026_Main-007.jpg',
+  'SwimParty_ParadisoStudio2026_Main-008.jpg',
+  'SwimParty_ParadisoStudio2026_Main-009.jpg',
+  'SwimParty_ParadisoStudio2026_Main-010.jpg',
+  'SwimParty_ParadisoStudio2026_Main-011.jpg',
+  'SwimParty_ParadisoStudio2026_Main-012.jpg',
+  'SwimParty_ParadisoStudio2026_Main-013.jpg',
+  'SwimParty_ParadisoStudio2026_Main-014.jpg',
+  'SwimParty_ParadisoStudio2026_Main-015.jpg',
+  'SwimParty_ParadisoStudio2026_Main-016.jpg',
+  'SwimParty_ParadisoStudio2026_Main-017.jpg',
+  'SwimParty_ParadisoStudio2026_Main-018.jpg',
+  'SwimParty_ParadisoStudio2026_Main-019.jpg',
+  'SwimParty_ParadisoStudio2026_Main-020.jpg',
+  'SwimParty_ParadisoStudio2026_Main-021.jpg',
+  'SwimParty_ParadisoStudio2026_Main-022.jpg',
+  'SwimParty_ParadisoStudio2026_Main-023.jpg',
+  'SwimParty_ParadisoStudio2026_Main-024.jpg',
+  'SwimParty_ParadisoStudio2026_Main-025.jpg',
+  'SwimParty_ParadisoStudio2026_Main-026.jpg',
+  'SwimParty_ParadisoStudio2026_Main-027.jpg',
+  'SwimParty_ParadisoStudio2026_Main-028.jpg',
+  'SwimParty_ParadisoStudio2026_Main-029.jpg',
+  'SwimParty_ParadisoStudio2026_Main-030.jpg',
+  'SwimParty_ParadisoStudio2026_Main-031.jpg',
+  'SwimParty_ParadisoStudio2026_Main-032.jpg',
+  'SwimParty_ParadisoStudio2026_Main-033.jpg',
+  'SwimParty_ParadisoStudio2026_Main-034.jpg',
+  'SwimParty_ParadisoStudio2026_Main-035.jpg',
+  'SwimParty_ParadisoStudio2026_Main-036.jpg',
+  'SwimParty_ParadisoStudio2026_Main-037.jpg',
+  'SwimParty_ParadisoStudio2026_Main-038.jpg',
+  'SwimParty_ParadisoStudio2026_Main-039.jpg',
+  'SwimParty_ParadisoStudio2026_Main-040.jpg',
+  'SwimParty_ParadisoStudio2026_Main-041.jpg',
+  'SwimParty_ParadisoStudio2026_Main-042.jpg',
+  'SwimParty_ParadisoStudio2026_Main-043.jpg',
+  'SwimParty_ParadisoStudio2026_Main-044.jpg',
+  'SwimParty_ParadisoStudio2026_Main-045.jpg',
+  'SwimParty_ParadisoStudio2026_Main-046.jpg',
+  'SwimParty_ParadisoStudio2026_Main-047.jpg',
+  'SwimParty_ParadisoStudio2026_Main-048.jpg',
+  'SwimParty_ParadisoStudio2026_Main-049.jpg',
+  'SwimParty_ParadisoStudio2026_Main-050.jpg',
+  'SwimParty_ParadisoStudio2026_Main-051.jpg',
+  'SwimParty_ParadisoStudio2026_Main-052.jpg',
+  'SwimParty_ParadisoStudio2026_Main-053.jpg',
+  'SwimParty_ParadisoStudio2026_Main-054.jpg',
+  'SwimParty_ParadisoStudio2026_Main-055.jpg',
+  'SwimParty_ParadisoStudio2026_Main-056.jpg',
+  'SwimParty_ParadisoStudio2026_Main-057.jpg',
+  'SwimParty_ParadisoStudio2026_Main-058.jpg',
+  'SwimParty_ParadisoStudio2026_Main-059.jpg',
+  'SwimParty_ParadisoStudio2026_Main-060.jpg',
+  'SwimParty_ParadisoStudio2026_Main-061.jpg',
+  'SwimParty_ParadisoStudio2026_Main-062.jpg',
+  'SwimParty_ParadisoStudio2026_Main-063.jpg',
+  'SwimParty_ParadisoStudio2026_Main-064.jpg',
+  'SwimParty_ParadisoStudio2026_Main-065.jpg',
+  'SwimParty_ParadisoStudio2026_Main-066.jpg',
+  'SwimParty_ParadisoStudio2026_Main-067.jpg',
+  'SwimParty_ParadisoStudio2026_Main-068.jpg',
+  'SwimParty_ParadisoStudio2026_Main-069.jpg',
+  'SwimParty_ParadisoStudio2026_Main-070.jpg',
+  'SwimParty_ParadisoStudio2026_Main-071.jpg',
+  'SwimParty_ParadisoStudio2026_Main-072.jpg',
+  'SwimParty_ParadisoStudio2026_Main-073.jpg',
+  'SwimParty_ParadisoStudio2026_Main-074.jpg',
+  'SwimParty_ParadisoStudio2026_Main-075.jpg',
+  'SwimParty_ParadisoStudio2026_Main-076.jpg',
+  'SwimParty_ParadisoStudio2026_Main-077.jpg',
+  'SwimParty_ParadisoStudio2026_Main-078.jpg',
+  'SwimParty_ParadisoStudio2026_Main-079.jpg',
+  'SwimParty_ParadisoStudio2026_Main-080.jpg',
+  'SwimParty_ParadisoStudio2026_Main-081.jpg',
+  'SwimParty_ParadisoStudio2026_Main-082.jpg',
+  'SwimParty_ParadisoStudio2026_Main-083.jpg',
+  'SwimParty_ParadisoStudio2026_Main-084.jpg',
+  'SwimParty_ParadisoStudio2026_Main-085.jpg',
+  'SwimParty_ParadisoStudio2026_Main-086.jpg',
+  'SwimParty_ParadisoStudio2026_Main-087.jpg',
+  'SwimParty_ParadisoStudio2026_Main-088.jpg',
+  'SwimParty_ParadisoStudio2026_Main-089.jpg',
+  'SwimParty_ParadisoStudio2026_Main-090.jpg',
+  'SwimParty_ParadisoStudio2026_Main-091.jpg',
+  'SwimParty_ParadisoStudio2026_Main-092.jpg',
+  'SwimParty_ParadisoStudio2026_Main-093.jpg',
+  'SwimParty_ParadisoStudio2026_Main-094.jpg',
+  'SwimParty_ParadisoStudio2026_Main-095.jpg',
+  'SwimParty_ParadisoStudio2026_Main-096.jpg',
+  'SwimParty_ParadisoStudio2026_Main-097.jpg',
+  'SwimParty_ParadisoStudio2026_Main-098.jpg',
+  'SwimParty_ParadisoStudio2026_Main-099.jpg',
+  'SwimParty_ParadisoStudio2026_Main-100.jpg',
+  'SwimParty_ParadisoStudio2026_Main-101.jpg',
+  'SwimParty_ParadisoStudio2026_Main-102.jpg',
+  'SwimParty_ParadisoStudio2026_Main-103.jpg',
+  'SwimParty_ParadisoStudio2026_Main-104.jpg',
+  'SwimParty_ParadisoStudio2026_Main-105.jpg',
+  'SwimParty_ParadisoStudio2026_Main-106.jpg',
+  'SwimParty_ParadisoStudio2026_Main-107.jpg',
+  'SwimParty_ParadisoStudio2026_Main-108.jpg',
+  'SwimParty_ParadisoStudio2026_Main-109.jpg',
+  'SwimParty_ParadisoStudio2026_Main-110.jpg',
+  'SwimParty_ParadisoStudio2026_Main-111.jpg',
+  'SwimParty_ParadisoStudio2026_Main-112.jpg',
+  'SwimParty_ParadisoStudio2026_Main-113.jpg',
+  'SwimParty_ParadisoStudio2026_Main-114.jpg',
+  'SwimParty_ParadisoStudio2026_Main-115.jpg',
+  'SwimParty_ParadisoStudio2026_Main-116.jpg',
+  'SwimParty_ParadisoStudio2026_Main-117.jpg',
+  'SwimParty_ParadisoStudio2026_Main-118.jpg',
+  'SwimParty_ParadisoStudio2026_Main-119.jpg',
+  'SwimParty_ParadisoStudio2026_Main-120.jpg',
+  'SwimParty_ParadisoStudio2026_Main-121.jpg',
+  'SwimParty_ParadisoStudio2026_Main-122.jpg',
+  'SwimParty_ParadisoStudio2026_Main-123.jpg',
+  'SwimParty_ParadisoStudio2026_Main-124.jpg',
+  'SwimParty_ParadisoStudio2026_Main-125.jpg',
+  'SwimParty_ParadisoStudio2026_Main-126.jpg',
+  'SwimParty_ParadisoStudio2026_Main-127.jpg',
+  'SwimParty_ParadisoStudio2026_Main-128.jpg',
+  'SwimParty_ParadisoStudio2026_Main-129.jpg',
+  'SwimParty_ParadisoStudio2026_Main-130.jpg',
+  'SwimParty_ParadisoStudio2026_Main-131.jpg',
+  'SwimParty_ParadisoStudio2026_Main-132.jpg',
+  'SwimParty_ParadisoStudio2026_Main-133.jpg',
+  'SwimParty_ParadisoStudio2026_Main-134.jpg',
+  'SwimParty_ParadisoStudio2026_Main-135.jpg',
+  'SwimParty_ParadisoStudio2026_Main-136.jpg',
+  'SwimParty_ParadisoStudio2026_Main-137.jpg',
+  'SwimParty_ParadisoStudio2026_Main-138.jpg',
+  'SwimParty_ParadisoStudio2026_Main-139.jpg',
+  'SwimParty_ParadisoStudio2026_Main-140.jpg',
+  'SwimParty_ParadisoStudio2026_Main-141.jpg',
+  'SwimParty_ParadisoStudio2026_Main-142.jpg',
+  'SwimParty_ParadisoStudio2026_Main-143.jpg',
+  'SwimParty_ParadisoStudio2026_Main-144.jpg',
+  'SwimParty_ParadisoStudio2026_Main-145.jpg',
+  'SwimParty_ParadisoStudio2026_Main-146.jpg',
+  'SwimParty_ParadisoStudio2026_Main-147.jpg',
+  'SwimParty_ParadisoStudio2026_Main-148.jpg',
+  'SwimParty_ParadisoStudio2026_Main-149.jpg',
+  'SwimParty_ParadisoStudio2026_Main-150.jpg',
+  'SwimParty_ParadisoStudio2026_Main-151.jpg',
+  'SwimParty_ParadisoStudio2026_Main-152.jpg',
+  'SwimParty_ParadisoStudio2026_Main-153.jpg',
+  'SwimParty_ParadisoStudio2026_Main-154.jpg',
+  'SwimParty_ParadisoStudio2026_Main-155.jpg',
+  'SwimParty_ParadisoStudio2026_Main-156.jpg',
+  'SwimParty_ParadisoStudio2026_Main-157.jpg',
+  'SwimParty_ParadisoStudio2026_Main-158.jpg',
+  'SwimParty_ParadisoStudio2026_Main-159.jpg',
+  'SwimParty_ParadisoStudio2026_Main-160.jpg',
+  'SwimParty_ParadisoStudio2026_Main-161.jpg',
+  'SwimParty_ParadisoStudio2026_Main-162.jpg',
+  'SwimParty_ParadisoStudio2026_Main-163.jpg',
+  'SwimParty_ParadisoStudio2026_Main-164.jpg',
+  'SwimParty_ParadisoStudio2026_Main-165.jpg',
+  'SwimParty_ParadisoStudio2026_Main-166.jpg',
+];
 const gallery2025 = [
   'Swim-Party-2025_by_JoeMann-0020.jpg',
   'Swim-Party-2025_by_JoeMann-0023.jpg',
@@ -52,6 +220,15 @@ const gallery2024 = [
   'Swim-Party_10km_2024-9027.jpg',
   'Swim-Party_10km_2024-9052.jpg',
 ];
+
+// Credits shown in the lightbox (disclaimer + download/copy). Only years listed here get them.
+const credits = {
+  '2026': {
+    name: 'Paradiso Studio',
+    handle: '@therealparadisostudio',
+    url: 'https://www.instagram.com/therealparadisostudio/',
+  },
+};
 ---
 
 <Base title="Gallery" description="Photos from SwimParty 10km editions.">
@@ -59,7 +236,35 @@ const gallery2024 = [
   <!-- Header -->
   <section class="panel-transparent py-24 text-center px-6">
     <h1 class="font-display uppercase mb-4 page-title">Gallery</h1>
-    <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">2024 &amp; 2025 editions.</p>
+    <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem;">2024, 2025 &amp; 2026 editions.</p>
+  </section>
+
+  <!-- 2026 -->
+  <section class="panel py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-2xl uppercase mb-2" style="letter-spacing:0.05em;">2026</h2>
+      <p class="mb-6" style="color:rgba(255,255,255,0.7);font-size:0.95rem;">
+        Photography: {credits['2026'].name}
+        <a href={credits['2026'].url} target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">{credits['2026'].handle}</a>
+      </p>
+      <hr class="carrd-rule" />
+      <div class="gallery-grid">
+        {gallery2026.map((filename, i) => (
+          <button
+            class="gallery-item"
+            data-gallery="2026"
+            data-index={String(i)}
+            aria-label={`Open photo ${i + 1} of ${gallery2026.length}`}
+          >
+            <img
+              src={`/images/gallery/2026/${filename}`}
+              alt={`SwimParty 2026 — photo ${i + 1}`}
+              loading="lazy"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
   </section>
 
   <!-- 2025 -->
@@ -122,12 +327,25 @@ const gallery2024 = [
     </div>
   </section>
 
+  <script type="application/json" id="gallery-credits" set:html={JSON.stringify(credits)} />
+
   <!-- Lightbox — must be inside Base so it lands inside <body> -->
   <div id="lb-overlay" aria-modal="true" role="dialog" aria-label="Photo viewer">
     <button id="lb-close" aria-label="Close">&#x2715;</button>
     <button id="lb-prev" aria-label="Previous photo">&#8249;</button>
     <div id="lb-img-wrap">
       <img id="lb-photo" src="" alt="" />
+      <div id="lb-credit" hidden>
+        <p id="lb-disclaimer">
+          Love this photo? Follow <a id="lb-follow" href="#" target="_blank" rel="noopener noreferrer"></a> on Instagram
+          and please credit the photographer when you share it — click Download to copy the credit line.
+        </p>
+        <button id="lb-download" type="button">Download</button>
+        <div id="lb-copy-panel" hidden>
+          <span id="lb-credit-text"></span>
+          <button id="lb-copy" type="button">Copy</button>
+        </div>
+      </div>
     </div>
     <button id="lb-next" aria-label="Next photo">&#8250;</button>
     <p id="lb-counter"></p>
@@ -180,9 +398,12 @@ const gallery2024 = [
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
     overflow: hidden;
     max-height: 100%;
   }
+  #lb-overlay.has-credit #lb-photo { max-height: 64vh; }
   #lb-photo {
     max-width: 100%;
     max-height: 82vh;
@@ -192,6 +413,40 @@ const gallery2024 = [
     transition: opacity 0.15s ease;
   }
   #lb-photo.fading { opacity: 0; }
+
+  #lb-credit {
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    max-width: 34rem;
+  }
+  #lb-credit a { color: #fff; text-decoration: underline; }
+  #lb-disclaimer { margin: 0 0 0.6rem; }
+  #lb-download, #lb-copy {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  #lb-download:hover, #lb-copy:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+  #lb-copy-panel {
+    margin-top: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  #lb-copy-panel[hidden], #lb-credit[hidden] { display: none; }
 
   #lb-close {
     position: absolute;
@@ -250,6 +505,15 @@ const gallery2024 = [
     const next    = document.getElementById('lb-next') as HTMLButtonElement | null;
     const closeBtn = document.getElementById('lb-close');
     const counter = document.getElementById('lb-counter');
+    const creditBox = document.getElementById('lb-credit');
+    const followLink = document.getElementById('lb-follow') as HTMLAnchorElement | null;
+    const downloadBtn = document.getElementById('lb-download');
+    const copyPanel = document.getElementById('lb-copy-panel');
+    const creditText = document.getElementById('lb-credit-text');
+    const copyBtn = document.getElementById('lb-copy');
+
+    const credits: Record<string, { name: string; handle: string; url: string }> =
+      JSON.parse(document.getElementById('gallery-credits')?.textContent || '{}');
 
     if (!overlay || !photo || !prev || !next) return;
 
@@ -266,10 +530,23 @@ const gallery2024 = [
     let activeGroup = '';
     let activeIdx = 0;
 
+    function updateCredit(g: string) {
+      const c = credits[g];
+      overlay.classList.toggle('has-credit', !!c);
+      if (!creditBox || !copyPanel) return;
+      creditBox.hidden = !c;
+      copyPanel.hidden = true;
+      if (copyBtn) copyBtn.textContent = 'Copy';
+      if (!c) return;
+      if (followLink) { followLink.href = c.url; followLink.textContent = c.handle; }
+      if (creditText) creditText.textContent = `Photographer: ${c.name} ${c.handle}`;
+    }
+
     function navigate(g: string, idx: number) {
       const list = groups[g];
       activeGroup = g;
       activeIdx = idx;
+      updateCredit(g);
       photo.classList.add('fading');
       setTimeout(() => {
         photo.src = list[idx].src;
@@ -299,6 +576,34 @@ const gallery2024 = [
         openLightbox(btn.dataset.gallery!, Number(btn.dataset.index));
       });
     });
+
+    // Download + credit copy
+    downloadBtn?.addEventListener('click', e => {
+      e.stopPropagation();
+      const a = document.createElement('a');
+      a.href = groups[activeGroup][activeIdx].src;
+      a.download = a.href.split('/').pop() || 'swimparty-photo.jpg';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      if (copyPanel) copyPanel.hidden = false;
+    });
+    copyBtn?.addEventListener('click', async e => {
+      e.stopPropagation();
+      const text = creditText?.textContent || '';
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+      }
+      copyBtn.textContent = 'Copied ✓';
+    });
+    creditBox?.addEventListener('click', e => e.stopPropagation());
 
     // Prev / next
     prev.addEventListener('click', e => {

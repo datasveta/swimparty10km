@@ -25,3 +25,8 @@ pnpm-debug.log*
 
 # Carrd export — source reference only, not part of the site
 carrd-swimparty10km-20260531/
+
+# Claude Code context files
+CLAUDE.md
+*Work Context for Claude*.md
+.claude/
