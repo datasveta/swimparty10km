@@ -529,6 +529,11 @@ const credits = {
 
     let activeGroup = '';
     let activeIdx = 0;
+    let pushed = false; // true when opening the lightbox added a history entry
+
+    // Each photo has a shareable link: /gallery#2026-42 (year-photo number)
+    const photoUrl = (g: string, idx: number) =>
+      `${location.pathname}${location.search}#${g}-${idx + 1}`;
 
     function updateCredit(g: string) {
       const c = credits[g];
@@ -547,6 +552,7 @@ const credits = {
       activeGroup = g;
       activeIdx = idx;
       updateCredit(g);
+      if (overlay.classList.contains('open')) history.replaceState(null, '', photoUrl(g, idx));
       photo.classList.add('fading');
       setTimeout(() => {
         photo.src = list[idx].src;
@@ -558,17 +564,36 @@ const credits = {
       next.disabled = idx === list.length - 1;
     }
 
-    function openLightbox(g: string, idx: number) {
+    function openLightbox(g: string, idx: number, push = true) {
+      const wasOpen = overlay.classList.contains('open');
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
+      if (push && !wasOpen) { history.pushState(null, '', photoUrl(g, idx)); pushed = true; }
       navigate(g, idx);
     }
 
-    function closeLightbox() {
+    function closeLightbox(fromHistory = false) {
       overlay.classList.remove('open');
       document.body.style.overflow = '';
       photo.src = '';
+      if (fromHistory) { pushed = false; return; }
+      if (pushed) { pushed = false; history.back(); }
+      else history.replaceState(null, '', location.pathname + location.search);
     }
+
+    // Open / close in response to the URL hash (page load, back/forward, pasted link)
+    function syncFromHash() {
+      const m = /^#(\d{4})-(\d+)$/.exec(location.hash);
+      const list = m && groups[m[1]];
+      const idx = m ? Number(m[2]) - 1 : -1;
+      if (list && idx >= 0 && idx < list.length) {
+        if (overlay.classList.contains('open')) navigate(m![1], idx);
+        else openLightbox(m![1], idx, false);
+      } else if (overlay.classList.contains('open')) {
+        closeLightbox(true);
+      }
+    }
+    window.addEventListener('popstate', syncFromHash);
 
     // Thumbnail clicks
     document.querySelectorAll<HTMLElement>('.gallery-item').forEach(btn => {
@@ -617,7 +642,7 @@ const credits = {
 
     // Close
     closeBtn?.addEventListener('click', e => { e.stopPropagation(); closeLightbox(); });
-    overlay.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', () => closeLightbox());
 
     // Keyboard
     document.addEventListener('keydown', e => {
@@ -626,6 +651,8 @@ const credits = {
       if (e.key === 'ArrowRight') { e.preventDefault(); if (activeIdx < groups[activeGroup].length - 1) navigate(activeGroup, activeIdx + 1); }
       if (e.key === 'Escape') closeLightbox();
     });
+
+    syncFromHash();
 
     // Touch swipe
     let touchX = 0;
