@@ -2,15 +2,15 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="SwimParty 10km" description="Ever wondered of swimming and partying together? September 12, 2026 — Algarve, Portugal.">
+<Base title="SwimParty 10km" description="Ever dreamt of swimming and partying together? September 11, 2027 — Algarve, Portugal.">
 
   <!-- Hero -->
   <section class="panel-transparent min-h-screen flex flex-col items-center justify-center text-center px-6 py-24">
     <h1 class="font-display page-title text-white leading-tight mb-8" style="text-transform:uppercase;">
-      Ever wondered of swimming<br />and partying together?
+      Ever dreamt of swimming<br />and partying together?
     </h1>
     <p class="text-sm uppercase mb-2" style="letter-spacing:0.325rem;color:rgba(255,255,255,0.65);">Save the date:</p>
-    <p class="font-display text-3xl md:text-4xl mb-10" style="color:#DF206C;text-transform:uppercase;letter-spacing:0.05em;">September 12 2026</p>
+    <p class="font-display text-3xl md:text-4xl mb-10" style="color:#DF206C;text-transform:uppercase;letter-spacing:0.05em;">September 11 2027</p>
 
     <!-- Countdown -->
     <div class="flex gap-8 md:gap-12 mb-12 text-center">
@@ -22,8 +22,9 @@ import Base from '../layouts/Base.astro';
       ))}
     </div>
 
+    <p class="text-xs uppercase mb-4" style="letter-spacing:0.15rem;color:rgba(255,255,255,0.5);">Registration coming soon — subscribe to get updates</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="https://multicrono.com/v1/swim-party-algarve-2026/" target="_blank" rel="noopener noreferrer" class="btn btn-pink">Register now!</a>
+      <a href="/contact#subscribe" class="btn btn-pink">Get updates</a>
       <a href="/race" class="btn">I'm curious</a>
     </div>
   </section>
@@ -60,7 +61,7 @@ import Base from '../layouts/Base.astro';
         <h2 class="section-heading mb-6">When and where?</h2>
         <hr class="carrd-rule" />
         <p class="leading-relaxed mb-8" style="color:rgba(255,255,255,0.85);">
-          12 September 2026<br />
+          11 September 2027<br />
           From Benagil and Carvoeiro beaches to Ferragudo Praia dos Caneiros
         </p>
         <div><a href="/race" class="btn">I'm convinced</a></div>
@@ -107,12 +108,15 @@ import Base from '../layouts/Base.astro';
   <!-- Registration CTA -->
   <section class="panel py-24 text-center px-6">
     <div class="max-w-2xl mx-auto">
-      <h2 class="font-display text-3xl md:text-4xl uppercase mb-6" style="color:#DF206C;letter-spacing:0.05em;">Registration</h2>
+      <h2 class="font-display text-3xl md:text-4xl uppercase mb-6" style="color:#DF206C;letter-spacing:0.05em;">Registration coming soon</h2>
       <hr class="carrd-rule" />
-      <p class="leading-relaxed mb-10" style="color:rgba(255,255,255,0.85);">
-        The registration fee includes participation with an electronic chip, an official event swim cap, an event t-shirt, nutrition, drinks, support in and out of the water, safety, transport for departure and arrival and access to the post-event party, which includes lunch on the beach.
+      <p class="leading-relaxed mb-4" style="color:rgba(255,255,255,0.85);">
+        Registration for 2027 isn't open yet. Subscribe to our newsletter and we'll let you know the moment it launches.
       </p>
-      <a href="https://multicrono.com/v1/swim-party-algarve-2026/" target="_blank" rel="noopener noreferrer" class="btn btn-pink">Register now!</a>
+      <p class="leading-relaxed mb-10" style="color:rgba(255,255,255,0.85);">
+        The registration fee will include participation with an electronic chip, an official event swim cap, an event t-shirt, nutrition, drinks, support in and out of the water, safety, transport for departure and arrival and access to the post-event party, which includes lunch on the beach.
+      </p>
+      <a href="/contact#subscribe" class="btn btn-pink">Subscribe for updates</a>
     </div>
   </section>
 
@@ -142,7 +146,7 @@ import Base from '../layouts/Base.astro';
 
 <script>
   function tick() {
-    const diff = new Date('2026-09-12T08:00:00').getTime() - Date.now();
+    const diff = new Date('2027-09-11T08:00:00').getTime() - Date.now();
     if (diff <= 0) return;
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);

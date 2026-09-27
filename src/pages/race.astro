@@ -2,10 +2,10 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Race" description="Race distances, pricing, and route for SwimParty 10km — September 12, 2026, Algarve.">
+<Base title="Race" description="Race distances, pricing, and route for SwimParty 10km — September 11, 2027, Algarve.">
 
   <section class="panel-transparent py-24 text-center px-6">
-    <p class="text-xs uppercase mb-4" style="letter-spacing:0.325rem;color:rgba(255,255,255,0.6);">September 12, 2026</p>
+    <p class="text-xs uppercase mb-4" style="letter-spacing:0.325rem;color:rgba(255,255,255,0.6);">September 11, 2027</p>
     <h1 class="font-display uppercase mb-4 page-title">Race information</h1>
     <p style="color:rgba(255,255,255,0.7);">Benagil &amp; Carvoeiro → Ferragudo Praia dos Caneiros</p>
   </section>
@@ -57,22 +57,22 @@ import Base from '../layouts/Base.astro';
       <h2 class="section-heading mb-6">Pricing</h2>
       <hr class="carrd-rule" />
       <p class="text-sm mb-8" style="color:rgba(255,255,255,0.55);">
-        Register via <a href="https://multicrono.com/v1/swim-party-algarve-2026/" target="_blank" rel="noopener noreferrer" style="color:#DF206C;text-decoration:none;">multicrono.com</a>. All prices in euros.
+        Registration for 2027 isn't open yet, but here's what it'll cost. Subscribe to our newsletter and we'll let you know the moment it launches. All prices in euros.
       </p>
       <div class="overflow-x-auto mb-8">
         <table style="width:100%;font-size:0.9rem;border-collapse:collapse;">
           <thead>
             <tr style="border-bottom:1px solid rgba(255,255,255,0.15);">
-              {['Period','Solo 10km','Solo 5km','Trio team','Trio / person'].map(h => (
+              {['Period','Solo 10km','Solo 5km','Relay team','Relay / person'].map(h => (
                 <th style="padding:0 1rem 0.75rem 0;text-align:left;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2rem;color:rgba(255,255,255,0.4);font-weight:400;">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {[
-              { label: 'Early Bird', dates: 'Jan 8 – Feb 14', solo10: '€100', solo5: '€70', team: '€170', pp: '€57' },
-              { label: 'Full On',    dates: 'Feb 15 – Jun 30', solo10: '€130', solo5: '€90', team: '€220', pp: '€74' },
-              { label: 'Last Minute', dates: 'Jul 1 – Aug 12', solo10: '€180', solo5: '€120', team: '€300', pp: '€100' },
+              { label: 'Early Bird', dates: 'Oct 1 – Dec 31, 2026', solo10: '€100', solo5: '€70', team: '€170', pp: '€60' },
+              { label: 'Normal Bird', dates: 'Jan 1 – May 30, 2027', solo10: '€130', solo5: '€90', team: '€220', pp: '€75' },
+              { label: 'Late Bird', dates: 'Jun 1 – Aug 31, 2027', solo10: '€180', solo5: '€120', team: '€300', pp: '€100' },
             ].map(row => (
               <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
                 <td style="padding:0.9rem 1rem 0.9rem 0;">
@@ -88,7 +88,7 @@ import Base from '../layouts/Base.astro';
           </tbody>
         </table>
       </div>
-      <a href="https://multicrono.com/v1/swim-party-algarve-2026/" target="_blank" rel="noopener noreferrer" class="btn btn-pink">Register now!</a>
+      <a href="/contact#subscribe" class="btn btn-pink">Subscribe for updates</a>
     </div>
   </section>
 

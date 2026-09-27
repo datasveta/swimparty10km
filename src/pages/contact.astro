@@ -29,10 +29,11 @@ import SocialIcons from '../components/SocialIcons.astro';
           <SocialIcons withLabels={true} />
         </div>
 
-        <div>
+        <div id="subscribe">
           <h3 class="section-heading mb-6" style="font-size:1.25rem;">Stay in the loop</h3>
           <hr class="carrd-rule" />
-          <p class="text-sm mb-6" style="color:rgba(255,255,255,0.5);">Race updates, early-bird alerts, Swim Week news.</p>
+          <p class="text-sm mb-2" style="color:rgba(255,255,255,0.5);">Registration for 2027 is coming soon.</p>
+          <p class="text-sm mb-6" style="color:rgba(255,255,255,0.5);">Subscribe to get updates — race news, early-bird alerts, and Swim Week updates.</p>
           <form
             action="https://swimparty10km.us14.list-manage.com/subscribe/post?u=b0d8bd484345c4f6875edf8f7&amp;id=ee382b71df&amp;f_id=005aa1e1f0"
             method="post"
@@ -54,6 +55,8 @@ import SocialIcons from '../components/SocialIcons.astro';
             <div aria-hidden="true" style="position:absolute;left:-5000px;">
               <input type="text" name="b_b0d8bd484345c4f6875edf8f7_ee382b71df" tabindex="-1" value="" />
             </div>
+            {/* Tags new subscribers from this form as "2027_interested" in Mailchimp */}
+            <input type="hidden" name="tags" value="7013585" />
             <button type="submit" class="btn btn-pink" style="width:100%;justify-content:center;margin-top:0.5rem;">Subscribe</button>
           </form>
         </div>
