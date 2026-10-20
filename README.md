@@ -88,10 +88,8 @@ The lightbox and the Download button always use the full-resolution original (vi
 Thumbnails (all sections) and the `2026-gotit` full-resolution originals are **not committed to the repo** — they're hosted on Cloudflare R2 and referenced by absolute URL (`R2_BASE` constant at the top of `src/pages/gallery.astro`). `2024`/`2025`/`2026` (Paradiso Studio) full-resolution originals stay committed as before.
 
 - Bucket: `swimparty10km-gallery` (Cloudflare account: `s.zadedyurina@gmail.com`)
-- Public URL (R2.dev dev domain, temporary): `https://pub-5a0d7153c5e2423396f5b734133d0bff.r2.dev`
+- Public URL: `https://images.swimparty10km.com` (custom domain bound to the bucket; `swimparty10km.com` DNS now lives on Cloudflare)
 - Upload: `./scripts/upload-gallery-to-r2.sh` (uploads `gallery-thumbs/` + `gallery/2026-gotit/`, requires `npx wrangler login` once per machine)
-
-**TODO (pending):** move to a custom subdomain (`images.swimparty10km.com`) instead of the `r2.dev` URL. This requires adding `swimparty10km.com` as a Cloudflare DNS zone (already done in the dashboard) and changing the domain's nameservers at the registrar (GoDaddy) from GoDaddy's defaults to Cloudflare's — blocked as of this writing because GoDaddy's nameserver field wasn't editable on first attempt (worth checking domain lock / "custom nameservers" toggle). Once the zone is active, bind the custom domain to the bucket in R2 settings and update `R2_BASE` in `gallery.astro` — no other code changes needed.
 
 Since `public/images/gallery-thumbs/` and `public/images/gallery/2026-gotit/` are generated/downloaded rather than committed, a fresh clone needs: `npm run thumbnails` (regenerates thumbnails for whatever originals exist locally) — but note `2026-gotit` originals themselves aren't in git either, so to fully reproduce locally you'd re-download that curated set, or just rely on the R2 copies (the live site doesn't need a local copy at all).
 
