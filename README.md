@@ -53,20 +53,45 @@ public/images/
   content/                # home page sections
   team/                   # org team
   gallery/
-    2024/                 # filenames listed in src/pages/gallery.astro
+    2024/                 # full-resolution originals — filenames listed in src/pages/gallery.astro
     2025/
-    2026/
+    2026/                 # ^ these three stay committed to the repo
+                           # (2026-gotit originals live on R2 instead — see below)
   route/                  # route map images (used on race page)
   partners/               # partner logos
 ```
 
 ### Adding gallery photos
 
-1. Drop the `.jpg` files into `public/images/gallery/2025/` (or `2024/`)
-2. Add each filename to the `gallery2025` (or `gallery2024`) array in `src/pages/gallery.astro`
-3. Commit and push — the gallery and lightbox update automatically
+1. Drop the `.jpg` files into `public/images/gallery/2026/` (or whichever year/section folder)
+2. Add each filename to the matching array in `src/pages/gallery.astro` (`gallery2026`, `gallery2026_gotit`, `gallery2025`, `gallery2024`)
+3. Run `npm run thumbnails` (see below) to generate thumbnails for the new photos
+4. Run `./scripts/upload-gallery-to-r2.sh` to push thumbnails (and 2026-gotit originals) to R2 — see "Image hosting (R2)" below
+5. Commit and push the code changes (NOT the files under `gallery-thumbs/` or `gallery/2026-gotit/` — those aren't meant to be committed, see below)
 
-Photographer credits: add a year to the `credits` object at the top of `src/pages/gallery.astro` (name, Instagram handle, URL) to enable the lightbox disclaimer and the Download + copy-credit panel for that year. Currently only 2026 (Paradiso Studio).
+Photographer credits: add an entry to the `credits` object at the top of `src/pages/gallery.astro` (name, Instagram handle, URL, optional `albumUrl` for a full-album link) to enable the lightbox disclaimer and the Download + copy-credit panel for that section. Currently: `2026` (Paradiso Studio) and `2026-gotit` (gotit.shots).
+
+### Gallery thumbnails
+
+The gallery grid serves small, compressed thumbnails (not the full-resolution originals) to avoid a heavy, jumpy initial page load. These are generated, not hand-created:
+
+```bash
+npm run thumbnails   # runs scripts/generate-thumbnails.mjs
+```
+
+This resizes every photo under `public/images/gallery/<section>/` to a 640px-max JPEG and writes it to the matching path under `public/images/gallery-thumbs/<section>/`, and writes each thumbnail's real width/height to `src/data/gallery-dimensions.json` (used to set `width`/`height` on the `<img>` tags so the layout doesn't reflow as images load). It skips files that are already up to date, so re-running after adding a few new photos is fast.
+
+The lightbox and the Download button always use the full-resolution original (via a `data-full` attribute), never the compressed thumbnail — no quality is lost when viewing/downloading a photo.
+
+### Image hosting (R2)
+
+Thumbnails (all sections) and the `2026-gotit` full-resolution originals are **not committed to the repo** — they're hosted on Cloudflare R2 and referenced by absolute URL (`R2_BASE` constant at the top of `src/pages/gallery.astro`). `2024`/`2025`/`2026` (Paradiso Studio) full-resolution originals stay committed as before.
+
+- Bucket: `swimparty10km-gallery` (Cloudflare account: `s.zadedyurina@gmail.com`)
+- Public URL: `https://images.swimparty10km.com` (custom domain bound to the bucket; `swimparty10km.com` DNS now lives on Cloudflare)
+- Upload: `./scripts/upload-gallery-to-r2.sh` (uploads `gallery-thumbs/` + `gallery/2026-gotit/`, requires `npx wrangler login` once per machine)
+
+Since `public/images/gallery-thumbs/` and `public/images/gallery/2026-gotit/` are generated/downloaded rather than committed, a fresh clone needs: `npm run thumbnails` (regenerates thumbnails for whatever originals exist locally) — but note `2026-gotit` originals themselves aren't in git either, so to fully reproduce locally you'd re-download that curated set, or just rely on the R2 copies (the live site doesn't need a local copy at all).
 
 ---
 

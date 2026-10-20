@@ -1,5 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
+import galleryDimensions from '../data/gallery-dimensions.json';
+
+const dims: Record<string, { w: number; h: number }> = galleryDimensions;
+
+// Thumbnails (all sections) and gotit.shots full-res originals are hosted on
+// Cloudflare R2, not committed to the repo. See README "Gallery thumbnails".
+const R2_BASE = 'https://images.swimparty10km.com';
 
 const gallery2026 = [
   'SwimParty_ParadisoStudio2026_Main-001.jpg',
@@ -194,6 +201,111 @@ const gallery2026 = [
   'SwimParty_ParadisoStudio2026-24.jpg',
   'SwimParty_ParadisoStudio2026-25.jpg',
 ];
+// Curated selection — full set (340+) lives on Google Drive, linked in credits below.
+// Add chosen files to public/images/gallery/2026-gotit/ and list their filenames here.
+const gallery2026_gotit: string[] = [
+  'IMG_4991.jpg',
+  'IMG_5009.jpg',
+  'IMG_5014.jpg',
+  'IMG_5033.jpg',
+  'IMG_5035.jpg',
+  'IMG_5043.jpg',
+  'IMG_5082.jpg',
+  'IMG_5097.jpg',
+  'IMG_5104.jpg',
+  'IMG_5107.jpg',
+  'IMG_5108.jpg',
+  'IMG_5119.jpg',
+  'IMG_5131.jpg',
+  'IMG_5133.jpg',
+  'IMG_5149.jpg',
+  'IMG_5185.jpg',
+  'IMG_5233.jpg',
+  'IMG_5268.jpg',
+  'IMG_5282.jpg',
+  'IMG_5283.jpg',
+  'IMG_5298.jpg',
+  'IMG_5312.jpg',
+  'IMG_5329.jpg',
+  'IMG_5365.jpg',
+  'IMG_5393.jpg',
+  'IMG_5419.jpg',
+  'IMG_5451.jpg',
+  'IMG_5459.jpg',
+  'IMG_5511.jpg',
+  'IMG_5551.jpg',
+  'IMG_5591.jpg',
+  'IMG_5601.jpg',
+  'IMG_5628.jpg',
+  'IMG_5732.jpg',
+  'IMG_5831.jpg',
+  'IMG_5858.jpg',
+  'IMG_5865.jpg',
+  'IMG_5888.jpg',
+  'IMG_5895.jpg',
+  'IMG_5907.jpg',
+  'IMG_5922.jpg',
+  'IMG_5928.jpg',
+  'IMG_5989.jpg',
+  'IMG_5998-4.jpg',
+  'IMG_6027.jpg',
+  'IMG_6238.jpg',
+  'IMG_6245.jpg',
+  'IMG_6257.jpg',
+  'IMG_6292.jpg',
+  'IMG_6296.jpg',
+  'IMG_6364.jpg',
+  'IMG_6382.jpg',
+  'IMG_6430.jpg',
+  'IMG_6434.jpg',
+  'IMG_6515.jpg',
+  'IMG_6637.jpg',
+  'IMG_6657.jpg',
+  'IMG_6676.jpg',
+  'IMG_6692.jpg',
+  'IMG_6705.jpg',
+  'IMG_6716.jpg',
+  'IMG_6755.jpg',
+  'IMG_6757.jpg',
+  'IMG_6763.jpg',
+  'IMG_6780.jpg',
+  'IMG_6794.jpg',
+  'IMG_6801.jpg',
+  'IMG_6812.jpg',
+  'SwimParty2026_by_JoeMann-10.jpg',
+  'SwimParty2026_by_JoeMann-11.jpg',
+  'SwimParty2026_by_JoeMann-12.jpg',
+  'SwimParty2026_by_JoeMann-13.jpg',
+  'SwimParty2026_by_JoeMann-14.jpg',
+  'SwimParty2026_by_JoeMann-15.jpg',
+  'SwimParty2026_by_JoeMann-16.jpg',
+  'SwimParty2026_by_JoeMann-3.jpg',
+  'SwimParty2026_by_JoeMann-4.jpg',
+  'SwimParty2026_by_JoeMann-5.jpg',
+  'SwimParty2026_by_JoeMann-6.jpg',
+  'SwimParty2026_by_JoeMann-8.jpg',
+  'SwimParty2026_by_JoeMann-9.jpg',
+  'SwimParty2026_by_JoeMann.jpg',
+  '_SCR8796.jpg',
+  '_SCR8822.jpg',
+  '_SCR8832.jpg',
+  '_SCR8836.jpg',
+  '_SCR8857.jpg',
+  '_SCR8866.jpg',
+  '_SCR8881.jpg',
+  '_SCR8908.jpg',
+  '_SCR8920.jpg',
+  '_SCR8939.jpg',
+  '_SCR8942.jpg',
+  '_SCR8965.jpg',
+  '_SCR8991.jpg',
+  '_SCR8995.jpg',
+  '_SCR9006.jpg',
+  '_SCR9014.jpg',
+  '_SCR9042.jpg',
+  '_SCR9062-1.jpg',
+  '_SCR9080-1.jpg',
+];
 const gallery2025 = [
   'Swim-Party-2025_by_JoeMann-0020.jpg',
   'Swim-Party-2025_by_JoeMann-0023.jpg',
@@ -253,6 +365,12 @@ const credits = {
     handle: '@therealparadisostudio',
     url: 'https://www.instagram.com/therealparadisostudio/',
   },
+  '2026-gotit': {
+    name: 'gotit.shots',
+    handle: '@gotit.shots',
+    url: 'https://www.instagram.com/gotit.shots/',
+    albumUrl: 'https://www.smugmug.com/app/organize/Swim-Paerty-by-JOe-Mann-Got-it-shots',
+  },
 };
 ---
 
@@ -267,7 +385,7 @@ const credits = {
   <!-- 2026 -->
   <section class="panel py-16">
     <div class="max-w-5xl mx-auto px-6">
-      <h2 class="font-display text-2xl uppercase mb-2" style="letter-spacing:0.05em;">2026</h2>
+      <h2 class="font-display text-2xl uppercase mb-2" style="letter-spacing:0.05em;">2026 — Paradiso Studio</h2>
       <p class="mb-6" style="color:rgba(255,255,255,0.7);font-size:0.95rem;">
         Photography: {credits['2026'].name}
         <a href={credits['2026'].url} target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">{credits['2026'].handle}</a>
@@ -282,13 +400,67 @@ const credits = {
             aria-label={`Open photo ${i + 1} of ${gallery2026.length}`}
           >
             <img
-              src={`/images/gallery/2026/${filename}`}
+              src={`${R2_BASE}/gallery-thumbs/2026/${filename}`}
+              data-full={`/images/gallery/2026/${filename}`}
+              width={dims[`2026/${filename}`]?.w}
+              height={dims[`2026/${filename}`]?.h}
               alt={`SwimParty 2026 — photo ${i + 1}`}
               loading="lazy"
             />
           </button>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- 2026 — gotit.shots -->
+  <section class="panel py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="font-display text-2xl uppercase mb-2" style="letter-spacing:0.05em;">2026 — gotit.shots</h2>
+      <p class="mb-6" style="color:rgba(255,255,255,0.7);font-size:0.95rem;">
+        Photography: {credits['2026-gotit'].name}
+        <a href={credits['2026-gotit'].url} target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">{credits['2026-gotit'].handle}</a>
+        &nbsp;·&nbsp;
+        <a href={credits['2026-gotit'].albumUrl} target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">View full album ↗</a>
+      </p>
+      <hr class="carrd-rule" />
+      <div class="gallery-video-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1vylbcM9GWGfqH3WpWnIS9K9qyT8i9FMn/preview"
+          title="SwimParty 2026 aftermovie"
+          loading="lazy"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <p class="mb-8" style="font-size:0.75rem;">
+        <a href="https://drive.google.com/file/d/1vylbcM9GWGfqH3WpWnIS9K9qyT8i9FMn/view" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Watch on Google Drive ↗</a>
+      </p>
+      {gallery2026_gotit.length > 0 ? (
+        <div class="gallery-grid">
+          {gallery2026_gotit.map((filename, i) => (
+            <button
+              class="gallery-item"
+              data-gallery="2026-gotit"
+              data-index={String(i)}
+              aria-label={`Open photo ${i + 1} of ${gallery2026_gotit.length}`}
+            >
+              <img
+                src={`${R2_BASE}/gallery-thumbs/2026-gotit/${filename}`}
+                data-full={`${R2_BASE}/gallery/2026-gotit/${filename}`}
+                width={dims[`2026-gotit/${filename}`]?.w}
+                height={dims[`2026-gotit/${filename}`]?.h}
+                alt={`SwimParty 2026 — photo ${i + 1} by gotit.shots`}
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
+      ) : (
+        <p style="color:rgba(255,255,255,0.35);font-size:0.875rem;font-style:italic;">
+          Selected photos coming soon — browse the full set on Google Drive above in the meantime.
+        </p>
+      )}
     </div>
   </section>
 
@@ -307,7 +479,10 @@ const credits = {
               aria-label={`Open photo ${i + 1} of ${gallery2025.length}`}
             >
               <img
-                src={`/images/gallery/2025/${filename}`}
+                src={`${R2_BASE}/gallery-thumbs/2025/${filename}`}
+                data-full={`/images/gallery/2025/${filename}`}
+                width={dims[`2025/${filename}`]?.w}
+                height={dims[`2025/${filename}`]?.h}
                 alt={`SwimParty 2025 — photo ${i + 1}`}
                 loading="lazy"
               />
@@ -337,7 +512,10 @@ const credits = {
               aria-label={`Open photo ${i + 1} of ${gallery2024.length}`}
             >
               <img
-                src={`/images/gallery/2024/${filename}`}
+                src={`${R2_BASE}/gallery-thumbs/2024/${filename}`}
+                data-full={`/images/gallery/2024/${filename}`}
+                width={dims[`2024/${filename}`]?.w}
+                height={dims[`2024/${filename}`]?.h}
                 alt={`SwimParty 2024 — photo ${i + 1}`}
                 loading="lazy"
               />
@@ -370,6 +548,7 @@ const credits = {
           <span id="lb-credit-text"></span>
           <button id="lb-copy" type="button">Copy</button>
         </div>
+        <p id="lb-drive-wrap" hidden><a id="lb-drive" href="#" target="_blank" rel="noopener noreferrer">View full album ↗</a></p>
       </div>
     </div>
     <button id="lb-next" aria-label="Next photo">&#8250;</button>
@@ -379,6 +558,22 @@ const credits = {
 </Base>
 
 <style is:global>
+  /* Video embed */
+  .gallery-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 0.75rem;
+    background: rgba(255,255,255,0.03);
+  }
+  .gallery-video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
   /* Gallery grid */
   .gallery-grid {
     columns: 2;
@@ -536,8 +731,10 @@ const credits = {
     const copyPanel = document.getElementById('lb-copy-panel');
     const creditText = document.getElementById('lb-credit-text');
     const copyBtn = document.getElementById('lb-copy');
+    const driveWrap = document.getElementById('lb-drive-wrap');
+    const driveLink = document.getElementById('lb-drive') as HTMLAnchorElement | null;
 
-    const credits: Record<string, { name: string; handle: string; url: string }> =
+    const credits: Record<string, { name: string; handle: string; url: string; albumUrl?: string }> =
       JSON.parse(document.getElementById('gallery-credits')?.textContent || '{}');
 
     if (!overlay || !photo || !prev || !next) return;
@@ -549,7 +746,8 @@ const credits = {
       const idx = Number(btn.dataset.index);
       const img = btn.querySelector('img') as HTMLImageElement;
       if (!groups[g]) groups[g] = [];
-      groups[g][idx] = { src: img.src, alt: img.alt };
+      const full = img.dataset.full || img.src;
+      groups[g][idx] = { src: full, alt: img.alt };
     });
 
     let activeGroup = '';
@@ -570,6 +768,8 @@ const credits = {
       if (!c) return;
       if (followLink) { followLink.href = c.url; followLink.textContent = c.handle; }
       if (creditText) creditText.textContent = `Photographer: ${c.name} ${c.handle}`;
+      if (driveWrap) driveWrap.hidden = !c.albumUrl;
+      if (driveLink && c.albumUrl) driveLink.href = c.albumUrl;
     }
 
     function navigate(g: string, idx: number) {
